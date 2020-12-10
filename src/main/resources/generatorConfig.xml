@@ -43,8 +43,8 @@
         </javaClientGenerator>
 
         <!-- 要生成的表名 -->
-        <table tableName="res_loc_idea"
-               domainObjectName="ResLocIdea" enableCountByExample="true"
+        <table tableName="res_loc_info"
+               domainObjectName="ResLocInfo" enableCountByExample="true"
                enableUpdateByExample="true" enableDeleteByExample="true"
                enableSelectByExample="true" selectByExampleQueryId="true"></table>
 

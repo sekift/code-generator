@@ -109,9 +109,13 @@ public class VOGenerator {
                             for(Field field : fields) {
                                 for(Map<String, Object> map : list){
                                     if(trimedLine.contains(" " + field.getName()+";") && field.getName().toLowerCase().equals(map.get("columnName"))){
+                                        String remark = map.get("remark").toString();
+                                        if(remark.contains("\"")){
+                                            remark = remark.replace("\"","\\\"");
+                                        }
                                         GeneratorUtil.writeFile(TO_PATH, String.format("    @ApiModelProperty(value = \"%s\", "
                                                         + "required = false, readOnly = false,%s allowEmptyValue = true, position = %d)",
-                                                map.get("remark"), dateType, position++));
+                                                remark, dateType, position++));
                                         break;
                                     }
                                 }
