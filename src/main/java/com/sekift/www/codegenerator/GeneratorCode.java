@@ -12,8 +12,10 @@ import org.junit.Test;
  * @date: 2020/11/03 11:21
  * @description: 自动代码生成运行类
  */
-public class GeneratorTest {
+public class GeneratorCode {
+    // 填写表的名字
     private String className = "res_loc_info";
+    // 填写表的注释
     private String noteDesc = "资源位信息表";
 
     @Before
