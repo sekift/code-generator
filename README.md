@@ -1,4 +1,4 @@
-<h1 align="center">Sekift Code Generator</h1>
+<h1 align="center">Code Generator</h1>
 <div align="center">
 快速自动代码生成器
 </div>
