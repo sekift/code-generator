@@ -14,9 +14,9 @@ import org.junit.Test;
  */
 public class GeneratorCode {
     // 填写表的名字
-    private String className = "res_loc_info";
+    private String className = "res_loc_pos_type";
     // 填写表的注释
-    private String noteDesc = "资源位信息表";
+    private String noteDesc = "资源位内容表";
 
     @Before
     public void setUp() {

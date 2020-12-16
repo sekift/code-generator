@@ -99,7 +99,7 @@ public class VOGenerator {
                         List<Map<String, Object>> list = JDBCOperator.queryTableMetadata();
                         if(list == null || CollectionUtils.isEmpty(list)){
                             GeneratorUtil.writeFile(TO_PATH, String.format("    @ApiModelProperty(value = \"%s\", "
-                                            + "required = false, readOnly = false,%s allowEmptyValue = true, position = %d)",
+                                            + "required = false, accessMode = ApiModelProperty.AccessMode.READ_WRITE, %s allowEmptyValue = true, position = %d)",
                                     comment, dateType, position++));
                         }else{
                             Set<Object> set = new HashSet<>();
@@ -114,7 +114,7 @@ public class VOGenerator {
                                             remark = remark.replace("\"","\\\"");
                                         }
                                         GeneratorUtil.writeFile(TO_PATH, String.format("    @ApiModelProperty(value = \"%s\", "
-                                                        + "required = false, readOnly = false,%s allowEmptyValue = true, position = %d)",
+                                                        + "required = false, accessMode = ApiModelProperty.AccessMode.READ_WRITE, %s allowEmptyValue = true, position = %d)",
                                                 remark, dateType, position++));
                                         break;
                                     }

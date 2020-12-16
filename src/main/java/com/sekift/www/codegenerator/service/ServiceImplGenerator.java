@@ -2,6 +2,7 @@ package com.sekift.www.codegenerator.service;
 
 import com.sekift.www.codegenerator.GeneratorConfig;
 import com.sekift.www.codegenerator.GeneratorUtil;
+import com.sekift.www.tool.ErrorCodeEnum;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -50,6 +51,7 @@ public class ServiceImplGenerator {
                     GeneratorUtil.writeFile(TO_PATH,"import " + PACKAGE_NAME + ".dao."+ CLASS_NAME +"Mapper;");
                     GeneratorUtil.writeFile(TO_PATH,"import " + PACKAGE_NAME + ".service."+ CLASS_NAME +"Service;");
                     GeneratorUtil.writeFile(TO_PATH,"import " + PACKAGE_NAME + ".tool.CommUtils;");
+                    GeneratorUtil.writeFile(TO_PATH,"import " + PACKAGE_NAME + ".tool.ErrorCodeEnum;");
                     GeneratorUtil.writeFile(TO_PATH,"import " + PACKAGE_NAME + ".tool.LogUtils;");
                     GeneratorUtil.writeFile(TO_PATH,"import org.springframework.beans.factory.annotation.Autowired;");
                     GeneratorUtil.writeFile(TO_PATH,"import org.springframework.stereotype.Service;");
@@ -78,8 +80,6 @@ public class ServiceImplGenerator {
                             .replace(CLASS_NAME+"Service", CLASS_NAME + "ServiceImpl implements "
                                     + CLASS_NAME+"Service"));
                     GeneratorUtil.writeFile(TO_PATH, "");
-                    //@Autowired
-                    //private ResLocCntnMapper resLocCntnMapper;
                     GeneratorUtil.writeFile(TO_PATH, "    @Autowired");
                     GeneratorUtil.writeFile(TO_PATH, "    private " + CLASS_NAME + "Mapper "+
                             GeneratorUtil.firstCharLowerCase(CLASS_NAME)+ "Mapper;");
@@ -120,12 +120,12 @@ public class ServiceImplGenerator {
                                 + GeneratorUtil.firstCharLowerCase(CLASS_NAME) + "Mapper.insert("
                                 + GeneratorUtil.firstCharLowerCase(CLASS_NAME) + ");");
                         GeneratorUtil.writeFile(TO_PATH, "            if(rows > 0){");
-                        GeneratorUtil.writeFile(TO_PATH, "                return JsonRslt.putSuccessMsg(\""+NOTE_DESC+"插入成功\");");
+                        GeneratorUtil.writeFile(TO_PATH, "                return JsonRslt.putSuccessMessage(\""+NOTE_DESC+"插入成功\");");
                         GeneratorUtil.writeFile(TO_PATH, "            }");
                         GeneratorUtil.writeFile(TO_PATH, "         } catch (Exception e) {");
                         GeneratorUtil.writeFile(TO_PATH, "                LogUtils.logError(CommUtils.getException(e));");
                         GeneratorUtil.writeFile(TO_PATH, "         }");
-                        GeneratorUtil.writeFile(TO_PATH, "         return JsonRslt.putErrorCode(1,  \""+NOTE_DESC+"插入失败\");");
+                        GeneratorUtil.writeFile(TO_PATH, "         return JsonRslt.putErrorCode(ErrorCodeEnum.SERVICE_ERROR_C0300.getCode(), \""+NOTE_DESC+"插入失败\");");
                     }else{
                         GeneratorUtil.writeFile(TO_PATH, "         return null;");
                     }
@@ -153,12 +153,12 @@ public class ServiceImplGenerator {
                                 + GeneratorUtil.firstCharLowerCase(CLASS_NAME) + "Mapper.deleteByPrimaryKey("
                                 + paramName + ");");
                         GeneratorUtil.writeFile(TO_PATH, "            if (rows > 0) {");
-                        GeneratorUtil.writeFile(TO_PATH, "                return JsonRslt.putSuccessMsg(\""+NOTE_DESC+"删除成功\");");
+                        GeneratorUtil.writeFile(TO_PATH, "                return JsonRslt.putSuccessMessage(\""+NOTE_DESC+"删除成功\");");
                         GeneratorUtil.writeFile(TO_PATH, "            }");
                         GeneratorUtil.writeFile(TO_PATH, "         } catch (Exception e) {");
                         GeneratorUtil.writeFile(TO_PATH, "                LogUtils.logError(CommUtils.getException(e));");
                         GeneratorUtil.writeFile(TO_PATH, "         }");
-                        GeneratorUtil.writeFile(TO_PATH, "         return JsonRslt.putErrorCode(1,  \""+NOTE_DESC+"删除失败\");");
+                        GeneratorUtil.writeFile(TO_PATH, "         return JsonRslt.putErrorCode(ErrorCodeEnum.SERVICE_ERROR_C0300.getCode(), \""+NOTE_DESC+"删除失败\");");
                     }else{
                         GeneratorUtil.writeFile(TO_PATH, "         return null;");
                     }
@@ -196,13 +196,13 @@ public class ServiceImplGenerator {
                             GeneratorUtil.writeFile(TO_PATH, "                return this.select(" + GeneratorUtil.firstCharLowerCase(CLASS_NAME)
                                     + ".get" + GeneratorUtil.firstCharUpperCase(paramName) + "());");
                         }else{
-                            GeneratorUtil.writeFile(TO_PATH, "                return JsonRslt.putSuccessMsg(\"" + NOTE_DESC + "修改成功\");");
+                            GeneratorUtil.writeFile(TO_PATH, "                return JsonRslt.putSuccessMessage(\"" + NOTE_DESC + "修改成功\");");
                         }
                         GeneratorUtil.writeFile(TO_PATH, "            }");
                         GeneratorUtil.writeFile(TO_PATH, "         } catch (Exception e) {");
                         GeneratorUtil.writeFile(TO_PATH, "                LogUtils.logError(CommUtils.getException(e));");
                         GeneratorUtil.writeFile(TO_PATH, "         }");
-                        GeneratorUtil.writeFile(TO_PATH, "         return JsonRslt.putErrorCode(1,  \""+NOTE_DESC+"修改失败\");");
+                        GeneratorUtil.writeFile(TO_PATH, "         return JsonRslt.putErrorCode(ErrorCodeEnum.SERVICE_ERROR_C0300.getCode(), \""+NOTE_DESC+"修改失败\");");
                     }else{
                         GeneratorUtil.writeFile(TO_PATH, "         return null;");
                     }
@@ -235,7 +235,7 @@ public class ServiceImplGenerator {
                                 + GeneratorUtil.firstCharLowerCase(CLASS_NAME)+");");
                         GeneratorUtil.writeFile(TO_PATH, "         }");
                         GeneratorUtil.writeFile(TO_PATH, "        "
-                                + " return JsonRslt.putSuccessMsg(\""+ paramName +"=\" + " + paramName + " + \"的"
+                                + " return JsonRslt.putSuccessMessage(\""+ paramName +"=\" + " + paramName + " + \"的"
                                 + NOTE_DESC + "数据不存在\");");
                     }else{
                         GeneratorUtil.writeFile(TO_PATH, "         return null;");
@@ -271,7 +271,7 @@ public class ServiceImplGenerator {
                         GeneratorUtil.writeFile(TO_PATH, "         } catch (Exception e) {");
                         GeneratorUtil.writeFile(TO_PATH, "                LogUtils.logError(CommUtils.getException(e));");
                         GeneratorUtil.writeFile(TO_PATH, "         }");
-                        GeneratorUtil.writeFile(TO_PATH, "         return JsonRslt.putErrorCode(1,  \""+NOTE_DESC+"查询失败\");");
+                        GeneratorUtil.writeFile(TO_PATH, "         return JsonRslt.putErrorCode(ErrorCodeEnum.SERVICE_ERROR_C0300.getCode(), \""+NOTE_DESC+"查询失败\");");
                     }else{
                         GeneratorUtil.writeFile(TO_PATH, "         return null;");
                     }

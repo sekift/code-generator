@@ -83,8 +83,6 @@ public class ControllerGenerator {
                     GeneratorUtil.writeFile(TO_PATH, trimedLine.replace("interface", "class")
                             .replace(CLASS_NAME+"Service", CLASS_NAME + "Controller"));
                     GeneratorUtil.writeFile(TO_PATH, "");
-                    //@Autowired
-                    //private ResLocCntnMapper resLocCntnMapper;
                     GeneratorUtil.writeFile(TO_PATH, "    @Autowired");
                     GeneratorUtil.writeFile(TO_PATH, "    private " + CLASS_NAME + "Service "+
                             GeneratorUtil.firstCharLowerCase(CLASS_NAME)+ "Service;");

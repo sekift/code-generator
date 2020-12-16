@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class TerminalTypeInfoExample {
+public class ResLocPosTypeExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public TerminalTypeInfoExample() {
+    public ResLocPosTypeExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -115,313 +115,193 @@ public class TerminalTypeInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andIdEqualTo(Integer value) {
+        public Criteria andIdEqualTo(String value) {
             addCriterion("ID =", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotEqualTo(Integer value) {
+        public Criteria andIdNotEqualTo(String value) {
             addCriterion("ID <>", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThan(Integer value) {
+        public Criteria andIdGreaterThan(String value) {
             addCriterion("ID >", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andIdGreaterThanOrEqualTo(String value) {
             addCriterion("ID >=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThan(Integer value) {
+        public Criteria andIdLessThan(String value) {
             addCriterion("ID <", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThanOrEqualTo(Integer value) {
+        public Criteria andIdLessThanOrEqualTo(String value) {
             addCriterion("ID <=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdIn(List<Integer> values) {
+        public Criteria andIdLike(String value) {
+            addCriterion("ID like", value, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdNotLike(String value) {
+            addCriterion("ID not like", value, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdIn(List<String> values) {
             addCriterion("ID in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotIn(List<Integer> values) {
+        public Criteria andIdNotIn(List<String> values) {
             addCriterion("ID not in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdBetween(Integer value1, Integer value2) {
+        public Criteria andIdBetween(String value1, String value2) {
             addCriterion("ID between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andIdNotBetween(String value1, String value2) {
             addCriterion("ID not between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andTrmlFormIdIsNull() {
-            addCriterion("trml_form_id is null");
+        public Criteria andNameIsNull() {
+            addCriterion("name is null");
             return (Criteria) this;
         }
 
-        public Criteria andTrmlFormIdIsNotNull() {
-            addCriterion("trml_form_id is not null");
+        public Criteria andNameIsNotNull() {
+            addCriterion("name is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTrmlFormIdEqualTo(Byte value) {
-            addCriterion("trml_form_id =", value, "trmlFormId");
+        public Criteria andNameEqualTo(String value) {
+            addCriterion("name =", value, "name");
             return (Criteria) this;
         }
 
-        public Criteria andTrmlFormIdNotEqualTo(Byte value) {
-            addCriterion("trml_form_id <>", value, "trmlFormId");
+        public Criteria andNameNotEqualTo(String value) {
+            addCriterion("name <>", value, "name");
             return (Criteria) this;
         }
 
-        public Criteria andTrmlFormIdGreaterThan(Byte value) {
-            addCriterion("trml_form_id >", value, "trmlFormId");
+        public Criteria andNameGreaterThan(String value) {
+            addCriterion("name >", value, "name");
             return (Criteria) this;
         }
 
-        public Criteria andTrmlFormIdGreaterThanOrEqualTo(Byte value) {
-            addCriterion("trml_form_id >=", value, "trmlFormId");
+        public Criteria andNameGreaterThanOrEqualTo(String value) {
+            addCriterion("name >=", value, "name");
             return (Criteria) this;
         }
 
-        public Criteria andTrmlFormIdLessThan(Byte value) {
-            addCriterion("trml_form_id <", value, "trmlFormId");
+        public Criteria andNameLessThan(String value) {
+            addCriterion("name <", value, "name");
             return (Criteria) this;
         }
 
-        public Criteria andTrmlFormIdLessThanOrEqualTo(Byte value) {
-            addCriterion("trml_form_id <=", value, "trmlFormId");
+        public Criteria andNameLessThanOrEqualTo(String value) {
+            addCriterion("name <=", value, "name");
             return (Criteria) this;
         }
 
-        public Criteria andTrmlFormIdIn(List<Byte> values) {
-            addCriterion("trml_form_id in", values, "trmlFormId");
+        public Criteria andNameLike(String value) {
+            addCriterion("name like", value, "name");
             return (Criteria) this;
         }
 
-        public Criteria andTrmlFormIdNotIn(List<Byte> values) {
-            addCriterion("trml_form_id not in", values, "trmlFormId");
+        public Criteria andNameNotLike(String value) {
+            addCriterion("name not like", value, "name");
             return (Criteria) this;
         }
 
-        public Criteria andTrmlFormIdBetween(Byte value1, Byte value2) {
-            addCriterion("trml_form_id between", value1, value2, "trmlFormId");
+        public Criteria andNameIn(List<String> values) {
+            addCriterion("name in", values, "name");
             return (Criteria) this;
         }
 
-        public Criteria andTrmlFormIdNotBetween(Byte value1, Byte value2) {
-            addCriterion("trml_form_id not between", value1, value2, "trmlFormId");
+        public Criteria andNameNotIn(List<String> values) {
+            addCriterion("name not in", values, "name");
             return (Criteria) this;
         }
 
-        public Criteria andPrdctTypeIdIsNull() {
-            addCriterion("prdct_type_id is null");
+        public Criteria andNameBetween(String value1, String value2) {
+            addCriterion("name between", value1, value2, "name");
             return (Criteria) this;
         }
 
-        public Criteria andPrdctTypeIdIsNotNull() {
-            addCriterion("prdct_type_id is not null");
+        public Criteria andNameNotBetween(String value1, String value2) {
+            addCriterion("name not between", value1, value2, "name");
             return (Criteria) this;
         }
 
-        public Criteria andPrdctTypeIdEqualTo(Integer value) {
-            addCriterion("prdct_type_id =", value, "prdctTypeId");
+        public Criteria andCreateTimeIsNull() {
+            addCriterion("create_time is null");
             return (Criteria) this;
         }
 
-        public Criteria andPrdctTypeIdNotEqualTo(Integer value) {
-            addCriterion("prdct_type_id <>", value, "prdctTypeId");
+        public Criteria andCreateTimeIsNotNull() {
+            addCriterion("create_time is not null");
             return (Criteria) this;
         }
 
-        public Criteria andPrdctTypeIdGreaterThan(Integer value) {
-            addCriterion("prdct_type_id >", value, "prdctTypeId");
+        public Criteria andCreateTimeEqualTo(Date value) {
+            addCriterion("create_time =", value, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andPrdctTypeIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("prdct_type_id >=", value, "prdctTypeId");
+        public Criteria andCreateTimeNotEqualTo(Date value) {
+            addCriterion("create_time <>", value, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andPrdctTypeIdLessThan(Integer value) {
-            addCriterion("prdct_type_id <", value, "prdctTypeId");
+        public Criteria andCreateTimeGreaterThan(Date value) {
+            addCriterion("create_time >", value, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andPrdctTypeIdLessThanOrEqualTo(Integer value) {
-            addCriterion("prdct_type_id <=", value, "prdctTypeId");
+        public Criteria andCreateTimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("create_time >=", value, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andPrdctTypeIdIn(List<Integer> values) {
-            addCriterion("prdct_type_id in", values, "prdctTypeId");
+        public Criteria andCreateTimeLessThan(Date value) {
+            addCriterion("create_time <", value, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andPrdctTypeIdNotIn(List<Integer> values) {
-            addCriterion("prdct_type_id not in", values, "prdctTypeId");
+        public Criteria andCreateTimeLessThanOrEqualTo(Date value) {
+            addCriterion("create_time <=", value, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andPrdctTypeIdBetween(Integer value1, Integer value2) {
-            addCriterion("prdct_type_id between", value1, value2, "prdctTypeId");
+        public Criteria andCreateTimeIn(List<Date> values) {
+            addCriterion("create_time in", values, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andPrdctTypeIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("prdct_type_id not between", value1, value2, "prdctTypeId");
+        public Criteria andCreateTimeNotIn(List<Date> values) {
+            addCriterion("create_time not in", values, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andTrmlFormNameIsNull() {
-            addCriterion("trml_form_name is null");
+        public Criteria andCreateTimeBetween(Date value1, Date value2) {
+            addCriterion("create_time between", value1, value2, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andTrmlFormNameIsNotNull() {
-            addCriterion("trml_form_name is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andTrmlFormNameEqualTo(String value) {
-            addCriterion("trml_form_name =", value, "trmlFormName");
-            return (Criteria) this;
-        }
-
-        public Criteria andTrmlFormNameNotEqualTo(String value) {
-            addCriterion("trml_form_name <>", value, "trmlFormName");
-            return (Criteria) this;
-        }
-
-        public Criteria andTrmlFormNameGreaterThan(String value) {
-            addCriterion("trml_form_name >", value, "trmlFormName");
-            return (Criteria) this;
-        }
-
-        public Criteria andTrmlFormNameGreaterThanOrEqualTo(String value) {
-            addCriterion("trml_form_name >=", value, "trmlFormName");
-            return (Criteria) this;
-        }
-
-        public Criteria andTrmlFormNameLessThan(String value) {
-            addCriterion("trml_form_name <", value, "trmlFormName");
-            return (Criteria) this;
-        }
-
-        public Criteria andTrmlFormNameLessThanOrEqualTo(String value) {
-            addCriterion("trml_form_name <=", value, "trmlFormName");
-            return (Criteria) this;
-        }
-
-        public Criteria andTrmlFormNameLike(String value) {
-            addCriterion("trml_form_name like", value, "trmlFormName");
-            return (Criteria) this;
-        }
-
-        public Criteria andTrmlFormNameNotLike(String value) {
-            addCriterion("trml_form_name not like", value, "trmlFormName");
-            return (Criteria) this;
-        }
-
-        public Criteria andTrmlFormNameIn(List<String> values) {
-            addCriterion("trml_form_name in", values, "trmlFormName");
-            return (Criteria) this;
-        }
-
-        public Criteria andTrmlFormNameNotIn(List<String> values) {
-            addCriterion("trml_form_name not in", values, "trmlFormName");
-            return (Criteria) this;
-        }
-
-        public Criteria andTrmlFormNameBetween(String value1, String value2) {
-            addCriterion("trml_form_name between", value1, value2, "trmlFormName");
-            return (Criteria) this;
-        }
-
-        public Criteria andTrmlFormNameNotBetween(String value1, String value2) {
-            addCriterion("trml_form_name not between", value1, value2, "trmlFormName");
-            return (Criteria) this;
-        }
-
-        public Criteria andPrdctTypeNameIsNull() {
-            addCriterion("prdct_type_name is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andPrdctTypeNameIsNotNull() {
-            addCriterion("prdct_type_name is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andPrdctTypeNameEqualTo(String value) {
-            addCriterion("prdct_type_name =", value, "prdctTypeName");
-            return (Criteria) this;
-        }
-
-        public Criteria andPrdctTypeNameNotEqualTo(String value) {
-            addCriterion("prdct_type_name <>", value, "prdctTypeName");
-            return (Criteria) this;
-        }
-
-        public Criteria andPrdctTypeNameGreaterThan(String value) {
-            addCriterion("prdct_type_name >", value, "prdctTypeName");
-            return (Criteria) this;
-        }
-
-        public Criteria andPrdctTypeNameGreaterThanOrEqualTo(String value) {
-            addCriterion("prdct_type_name >=", value, "prdctTypeName");
-            return (Criteria) this;
-        }
-
-        public Criteria andPrdctTypeNameLessThan(String value) {
-            addCriterion("prdct_type_name <", value, "prdctTypeName");
-            return (Criteria) this;
-        }
-
-        public Criteria andPrdctTypeNameLessThanOrEqualTo(String value) {
-            addCriterion("prdct_type_name <=", value, "prdctTypeName");
-            return (Criteria) this;
-        }
-
-        public Criteria andPrdctTypeNameLike(String value) {
-            addCriterion("prdct_type_name like", value, "prdctTypeName");
-            return (Criteria) this;
-        }
-
-        public Criteria andPrdctTypeNameNotLike(String value) {
-            addCriterion("prdct_type_name not like", value, "prdctTypeName");
-            return (Criteria) this;
-        }
-
-        public Criteria andPrdctTypeNameIn(List<String> values) {
-            addCriterion("prdct_type_name in", values, "prdctTypeName");
-            return (Criteria) this;
-        }
-
-        public Criteria andPrdctTypeNameNotIn(List<String> values) {
-            addCriterion("prdct_type_name not in", values, "prdctTypeName");
-            return (Criteria) this;
-        }
-
-        public Criteria andPrdctTypeNameBetween(String value1, String value2) {
-            addCriterion("prdct_type_name between", value1, value2, "prdctTypeName");
-            return (Criteria) this;
-        }
-
-        public Criteria andPrdctTypeNameNotBetween(String value1, String value2) {
-            addCriterion("prdct_type_name not between", value1, value2, "prdctTypeName");
+        public Criteria andCreateTimeNotBetween(Date value1, Date value2) {
+            addCriterion("create_time not between", value1, value2, "createTime");
             return (Criteria) this;
         }
 

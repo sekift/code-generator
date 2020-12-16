@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.sekift.www.dao.TerminalTypeInfoMapper" >
-  <resultMap id="BaseResultMap" type="com.sekift.www.model.TerminalTypeInfo" >
-    <id column="ID" property="id" jdbcType="INTEGER" />
-    <result column="trml_form_id" property="trmlFormId" jdbcType="TINYINT" />
-    <result column="prdct_type_id" property="prdctTypeId" jdbcType="INTEGER" />
-    <result column="trml_form_name" property="trmlFormName" jdbcType="VARCHAR" />
-    <result column="prdct_type_name" property="prdctTypeName" jdbcType="CHAR" />
+<mapper namespace="com.sekift.www.dao.ResLocPosTypeMapper" >
+  <resultMap id="BaseResultMap" type="com.sekift.www.model.ResLocPosType" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -68,16 +66,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    ID, trml_form_id, prdct_type_id, trml_form_name, prdct_type_name, update_time
+    ID, name, create_time, update_time
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.sekift.www.model.TerminalTypeInfoExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.sekift.www.model.ResLocPosTypeExample" >
     select
     <if test="distinct" >
       distinct
     </if>
-    'true' as QUERYID,
     <include refid="Base_Column_List" />
-    from terminal_type_info
+    from res_loc_pos_type
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -85,47 +82,39 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
-    from terminal_type_info
-    where ID = #{id,jdbcType=INTEGER}
+    from res_loc_pos_type
+    where ID = #{id,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from terminal_type_info
-    where ID = #{id,jdbcType=INTEGER}
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from res_loc_pos_type
+    where ID = #{id,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="com.sekift.www.model.TerminalTypeInfoExample" >
-    delete from terminal_type_info
+  <delete id="deleteByExample" parameterType="com.sekift.www.model.ResLocPosTypeExample" >
+    delete from res_loc_pos_type
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.sekift.www.model.TerminalTypeInfo" >
-    insert into terminal_type_info (ID, trml_form_id, prdct_type_id, 
-      trml_form_name, prdct_type_name, update_time
-      )
-    values (#{id,jdbcType=INTEGER}, #{trmlFormId,jdbcType=TINYINT}, #{prdctTypeId,jdbcType=INTEGER}, 
-      #{trmlFormName,jdbcType=VARCHAR}, #{prdctTypeName,jdbcType=CHAR}, #{updateTime,jdbcType=TIMESTAMP}
-      )
+  <insert id="insert" parameterType="com.sekift.www.model.ResLocPosType" >
+    insert into res_loc_pos_type (ID, name, create_time, 
+      update_time)
+    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.sekift.www.model.TerminalTypeInfo" >
-    insert into terminal_type_info
+  <insert id="insertSelective" parameterType="com.sekift.www.model.ResLocPosType" >
+    insert into res_loc_pos_type
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         ID,
       </if>
-      <if test="trmlFormId != null" >
-        trml_form_id,
+      <if test="name != null" >
+        name,
       </if>
-      <if test="prdctTypeId != null" >
-        prdct_type_id,
-      </if>
-      <if test="trmlFormName != null" >
-        trml_form_name,
-      </if>
-      <if test="prdctTypeName != null" >
-        prdct_type_name,
+      <if test="createTime != null" >
+        create_time,
       </if>
       <if test="updateTime != null" >
         update_time,
@@ -133,48 +122,36 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
-        #{id,jdbcType=INTEGER},
+        #{id,jdbcType=VARCHAR},
       </if>
-      <if test="trmlFormId != null" >
-        #{trmlFormId,jdbcType=TINYINT},
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
       </if>
-      <if test="prdctTypeId != null" >
-        #{prdctTypeId,jdbcType=INTEGER},
-      </if>
-      <if test="trmlFormName != null" >
-        #{trmlFormName,jdbcType=VARCHAR},
-      </if>
-      <if test="prdctTypeName != null" >
-        #{prdctTypeName,jdbcType=CHAR},
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="updateTime != null" >
         #{updateTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.sekift.www.model.TerminalTypeInfoExample" resultType="java.lang.Integer" >
-    select count(*) from terminal_type_info
+  <select id="countByExample" parameterType="com.sekift.www.model.ResLocPosTypeExample" resultType="java.lang.Integer" >
+    select count(*) from res_loc_pos_type
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update terminal_type_info
+    update res_loc_pos_type
     <set >
       <if test="record.id != null" >
-        ID = #{record.id,jdbcType=INTEGER},
+        ID = #{record.id,jdbcType=VARCHAR},
       </if>
-      <if test="record.trmlFormId != null" >
-        trml_form_id = #{record.trmlFormId,jdbcType=TINYINT},
+      <if test="record.name != null" >
+        name = #{record.name,jdbcType=VARCHAR},
       </if>
-      <if test="record.prdctTypeId != null" >
-        prdct_type_id = #{record.prdctTypeId,jdbcType=INTEGER},
-      </if>
-      <if test="record.trmlFormName != null" >
-        trml_form_name = #{record.trmlFormName,jdbcType=VARCHAR},
-      </if>
-      <if test="record.prdctTypeName != null" >
-        prdct_type_name = #{record.prdctTypeName,jdbcType=CHAR},
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.updateTime != null" >
         update_time = #{record.updateTime,jdbcType=TIMESTAMP},
@@ -185,45 +162,35 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update terminal_type_info
-    set ID = #{record.id,jdbcType=INTEGER},
-      trml_form_id = #{record.trmlFormId,jdbcType=TINYINT},
-      prdct_type_id = #{record.prdctTypeId,jdbcType=INTEGER},
-      trml_form_name = #{record.trmlFormName,jdbcType=VARCHAR},
-      prdct_type_name = #{record.prdctTypeName,jdbcType=CHAR},
+    update res_loc_pos_type
+    set ID = #{record.id,jdbcType=VARCHAR},
+      name = #{record.name,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.sekift.www.model.TerminalTypeInfo" >
-    update terminal_type_info
+  <update id="updateByPrimaryKeySelective" parameterType="com.sekift.www.model.ResLocPosType" >
+    update res_loc_pos_type
     <set >
-      <if test="trmlFormId != null" >
-        trml_form_id = #{trmlFormId,jdbcType=TINYINT},
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
       </if>
-      <if test="prdctTypeId != null" >
-        prdct_type_id = #{prdctTypeId,jdbcType=INTEGER},
-      </if>
-      <if test="trmlFormName != null" >
-        trml_form_name = #{trmlFormName,jdbcType=VARCHAR},
-      </if>
-      <if test="prdctTypeName != null" >
-        prdct_type_name = #{prdctTypeName,jdbcType=CHAR},
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="updateTime != null" >
         update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where ID = #{id,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.sekift.www.model.TerminalTypeInfo" >
-    update terminal_type_info
-    set trml_form_id = #{trmlFormId,jdbcType=TINYINT},
-      prdct_type_id = #{prdctTypeId,jdbcType=INTEGER},
-      trml_form_name = #{trmlFormName,jdbcType=VARCHAR},
-      prdct_type_name = #{prdctTypeName,jdbcType=CHAR},
+  <update id="updateByPrimaryKey" parameterType="com.sekift.www.model.ResLocPosType" >
+    update res_loc_pos_type
+    set name = #{name,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP}
-    where ID = #{id,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

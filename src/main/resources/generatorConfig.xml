@@ -43,10 +43,6 @@
         </javaClientGenerator>
 
         <!-- 要生成的表名 -->
-        <table tableName="res_loc_cntn"
-               domainObjectName="ReslocCntn" enableCountByExample="true"
-               enableUpdateByExample="true" enableDeleteByExample="true"
-               enableSelectByExample="true" selectByExampleQueryId="true"></table>
-
+        <table tableName="res_loc_pos_type"></table>
     </context>
 </generatorConfiguration>
