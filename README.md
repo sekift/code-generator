@@ -20,15 +20,15 @@
 2. 🤝 配置GeneratorConfig.java各项；
 3. 🐞 再配置GeneratorCode.java的className和noteDesc；
 4. 📖 然后使用mybatis-generator生成如下文件：<br/>
-  3.1 /mapper/TestMapper.xml <br/>
-  3.2 /dao/TestMapper.java <br/>
-  3.3 /model/Test.java <br/>
-  3.4 /model/TestExample.java <br/>
+  4.1 /mapper/TestMapper.xml <br/>
+  4.2 /dao/TestMapper.java <br/>
+  4.3 /model/Test.java <br/>
+  4.4 /model/TestExample.java <br/>
 5. 🔥 最后使用GeneratorCode生产如下文件： <br/>
-  4.1 /vo/TestVO.java <br/>
-  4.2 /service/TestService.java <br/>
-  4.3 /service/impl/TestServiceImpl.java <br/>
-  4.4 /controller/TestController.java <br/>
+  5.1 /vo/TestVO.java <br/>
+  5.2 /service/TestService.java <br/>
+  5.3 /service/impl/TestServiceImpl.java <br/>
+  5.4 /controller/TestController.java <br/>
 6. 🌟 第一次在本地运行会出错，这时候需要修改源码，并不困难。
   
 ## 📦 更新
