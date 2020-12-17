@@ -3,134 +3,153 @@ package com.sekift.www.codegenerator.service;
 import com.sekift.www.codegenerator.GeneratorConfig;
 import com.sekift.www.codegenerator.GeneratorUtil;
 import com.sekift.www.codegenerator.JDBCOperator;
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.lang.reflect.Field;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * @author: yinzhang.lu
  * @date: 2020/10/30 17:20
- * @description: 从model一键生成基本VO，属性说明需生成后再填写
+ * @description: 从model一键生成基本VO，某些属性说明需生成后再填写
  */
 public class VOGenerator {
-    public static final  String CLASS_NAME = GeneratorConfig.CLASS_NAME;
-    public static final  String NOTE_DESC = GeneratorConfig.NOTE_DESC;
-    public static final  boolean NEED_NOTE = GeneratorConfig.NEED_NOTE;
-    public static final  boolean NEED_PAGE = GeneratorConfig.VO_NEED_PAGE;
-    public static final  boolean NEED_SWAGGER = GeneratorConfig.VO_NEED_SWAGGER;
-    public static final  String PACKAGE_NAME = GeneratorConfig.PACKAGE_NAME;
-    public static final  String MODEL_DIR = GeneratorConfig.BASE_PKG_DIR + "model/";
-    public static final  String TO_DIR = GeneratorConfig.BASE_PKG_DIR + "vo/";
-    public static final  String FROM_PATH = MODEL_DIR + CLASS_NAME + GeneratorConfig.PRO_NAME;
-    public static final  String WRITE_NAME = "VO" + GeneratorConfig.PRO_NAME;
-    public static final  String TO_PATH = TO_DIR + CLASS_NAME + WRITE_NAME;
+    private static final String CLASS_NAME = GeneratorConfig.CLASS_NAME;
+    private static final String NOTE_DESC = GeneratorConfig.NOTE_DESC;
+    private static final boolean NEED_SWAGGER = GeneratorConfig.VO_NEED_SWAGGER;
+    private static final String MODEL_DIR = GeneratorConfig.BASE_PKG_DIR + "model/";
+    private static final String TO_DIR = GeneratorConfig.BASE_PKG_DIR + "vo/";
+    private static final String FROM_PATH = MODEL_DIR + CLASS_NAME + GeneratorConfig.PRO_NAME;
+    private static final String WRITE_NAME = "VO" + GeneratorConfig.PRO_NAME;
+    private static final String TO_PATH = TO_DIR + CLASS_NAME + WRITE_NAME;
+
+    // swagger顺序累加
+    private static int position = 1;
 
     public static void generateVO(){
-        int position = 1;
+        String line;
+        StringBuilder sb = new StringBuilder();
         try {
+            // 是否覆盖文件
+            GeneratorUtil.isAppendFile(TO_PATH);
             BufferedReader reader = GeneratorUtil.readFile(FROM_PATH);
-
-            String comment = "";
-            String line, trimedLine;
-            int firstLine = 0;
             while ((line = reader.readLine()) != null) {
-                trimedLine = line.trim();
-
-                // 第一条写的时候判断是否文件已存在，如果存在则不做操作，避免搞错
-                //可以使用NEED_APPEND参数进行控制是否判断
-                if(firstLine == 0){
-                    File file = new File(TO_PATH);
-                    if(file.exists() && !GeneratorConfig.NEED_APPEND){
-                        throw new Exception("写入的文件：" + TO_PATH + "已存在，请保存原文件并删除后再生成。" +
-                                "或者将GeneratorConfig的NEED_APPEND参数设置为true跳过此限制。");
-                    }
-                }
-                //包名
-                if (trimedLine.startsWith("package " + PACKAGE_NAME)) {
-                    firstLine++;
-                    GeneratorUtil.writeFile(TO_PATH, trimedLine.replace(".model", ".vo"));
-                    if (NEED_SWAGGER) {
-                        GeneratorUtil.writeFile(TO_PATH, "\n" + "import io.swagger.annotations.ApiModel;");
-                        GeneratorUtil.writeFile(TO_PATH, "import io.swagger.annotations.ApiModelProperty;");
-                    }
-                    GeneratorUtil.writeFile(TO_PATH, "import lombok.Data;");
-                }
-                if (trimedLine.startsWith("import ")) {
-                    GeneratorUtil.writeFile(TO_PATH, "");
-                    GeneratorUtil.writeFile(TO_PATH, trimedLine);
-                }
-
-                if (trimedLine.startsWith("public class ")) {
-                    GeneratorUtil.writeFile(TO_PATH, "");
-
-                    //类注释信息
-                    if (NEED_NOTE) {
-                        GeneratorUtil.writeFile(TO_PATH, "/**");
-                        GeneratorUtil.writeFile(TO_PATH, " * @author: " + GeneratorConfig.NOTE_AUTHOR);
-                        GeneratorUtil.writeFile(TO_PATH, " * @date: " + GeneratorUtil.getStringDate());
-                        GeneratorUtil.writeFile(TO_PATH, " * @description: " + NOTE_DESC);
-                        GeneratorUtil.writeFile(TO_PATH, " **/");
-                    }
-
-                    GeneratorUtil.writeFile(TO_PATH, "@Data");
-                    if (NEED_SWAGGER) {
-                        GeneratorUtil.writeFile(TO_PATH, String.format("@ApiModel(description=\"%s\")", NOTE_DESC));
-                    }
-                    GeneratorUtil.writeFile(TO_PATH,
-                            NEED_PAGE ? trimedLine.replace(" {","VO extends BaseEntity {") :
-                                    trimedLine.replace(" {","VO {"));
-                }
-
-                if (trimedLine.startsWith("private ")) {
-                    if (NEED_SWAGGER) {
-                        String dateType = "";
-                        if(trimedLine.contains("private Date")){
-                            dateType= "dataType = \"date\", example = \"2020-10-20 10:40:00\",";
-                        }else{
-                            dateType= "example = \"\",";
-                        }
-
-                        List<Map<String, Object>> list = JDBCOperator.queryTableMetadata();
-                        if(list == null || CollectionUtils.isEmpty(list)){
-                            GeneratorUtil.writeFile(TO_PATH, String.format("    @ApiModelProperty(value = \"%s\", "
-                                            + "required = false, accessMode = ApiModelProperty.AccessMode.READ_WRITE, %s allowEmptyValue = true, position = %d)",
-                                    comment, dateType, position++));
-                        }else{
-                            Set<Object> set = new HashSet<>();
-                            //得到属性/字段名称
-                            Class<?> clazz = Class.forName(GeneratorConfig.PACKAGE_NAME + ".model." + GeneratorConfig.CLASS_NAME );
-                            Field[] fields = clazz.getDeclaredFields();
-                            for(Field field : fields) {
-                                for(Map<String, Object> map : list){
-                                    if(trimedLine.contains(" " + field.getName()+";") && field.getName().toLowerCase().equals(map.get("columnName"))){
-                                        String remark = map.get("remark").toString();
-                                        if(remark.contains("\"")){
-                                            remark = remark.replace("\"","\\\"");
-                                        }
-                                        GeneratorUtil.writeFile(TO_PATH, String.format("    @ApiModelProperty(value = \"%s\", "
-                                                        + "required = false, accessMode = ApiModelProperty.AccessMode.READ_WRITE, %s allowEmptyValue = true, position = %d)",
-                                                remark, dateType, position++));
-                                        break;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    GeneratorUtil.writeFile(TO_PATH, "    " + trimedLine);
-                    GeneratorUtil.writeFile(TO_PATH, "");
-                }
+                String trimedLine = line.trim();
+                // 生成包名和引入包
+                generatePackageAndImport(sb, trimedLine);
+                // 生成注释和类名
+                generateDocAndClassName(sb, trimedLine);
+                // 生成属性和方法
+                generateFields(sb, trimedLine);
             }
-            GeneratorUtil.writeFile(TO_PATH, "}");
+            // 最后一个大括号
+            sb.append("}");
+
+            System.out.println(sb.toString());
+            GeneratorUtil.writeFile(TO_PATH, sb.toString());
             System.out.println(CLASS_NAME + WRITE_NAME + "生成成功");
         }catch(Exception e){
             e.printStackTrace();
             System.out.println(CLASS_NAME + WRITE_NAME + "生成失败");
         }
     }
+
+    /**
+     * 生成包名和引入包
+     * @param sb
+     * @param trimedLine
+     */
+    private static void generatePackageAndImport(StringBuilder sb, String trimedLine) {
+        if (trimedLine.startsWith("package " + GeneratorConfig.PACKAGE_NAME)) {
+            // 包名
+            String packageName = trimedLine.replace(".model", ".vo");
+            sb.append(packageName + "\n");
+            sb.append("\n");
+            // 引入swagger的包
+            if (NEED_SWAGGER) {
+                sb.append("import io.swagger.annotations.ApiModel;" + "\n");
+                sb.append("import io.swagger.annotations.ApiModelProperty;" + "\n");
+            }
+            // 引入lombak包
+            sb.append("import lombok.Data;" + "\n");
+            sb.append("\n");
+        }
+        // 引入model原有包
+        if (trimedLine.startsWith("import ")) {
+            sb.append(trimedLine + "\n");
+        }
+    }
+
+    /**
+     * 生成注释和类名
+     * @param sb
+     * @param trimedLine
+     */
+    private static void generateDocAndClassName(StringBuilder sb, String trimedLine) {
+        if (trimedLine.startsWith("public class ")) {
+            sb.append("\n");
+            // 类注释信息
+            CommonGenerator.classDescription(sb);
+
+            // 注解
+            sb.append("@Data" + "\n");
+            if (NEED_SWAGGER) {
+                sb.append(String.format("@ApiModel(description=\"%s\")", NOTE_DESC) + "\n");
+            }
+            // 类名，是否需分页
+            String className = (GeneratorConfig.VO_NEED_PAGE ? trimedLine.replace(" {","VO extends BaseEntity {") :
+                    trimedLine.replace(" {","VO {"));
+            sb.append(className + "\n");
+        }
+    }
+
+    /**
+     * 生成属性和方法
+     * @param sb
+     * @param trimedLine
+     * @throws Exception
+     */
+    private static void generateFields(StringBuilder sb, String trimedLine) throws Exception{
+        if (trimedLine.startsWith("private ")) {
+            if (NEED_SWAGGER) {
+                // 类型的swagger示例
+                String dateType =
+                        (trimedLine.contains("private Date")?
+                                "dataType = \"date\", example = \"2020-12-12 12:00:00\",":
+                                "example = \"\",");
+
+
+                String swaggerRemark = "    @ApiModelProperty(value = \"%s\", required = false, accessMode = ApiModelProperty.AccessMode.READ_WRITE,\n"
+                        + "                       %s allowEmptyValue = true, position = %d)";
+
+                // 从数据库拿字段说明
+                List<Map<String, Object>> list = JDBCOperator.queryTableMetadata();
+                if(CollectionUtils.isEmpty(list)){
+                    // 拿不到就写默认的swagger
+                    sb.append(String.format(swaggerRemark, "", dateType, position++) + "\n");
+                } else {
+                    //得到属性、字段名称
+                    Class<?> clazz = Class.forName(GeneratorConfig.PACKAGE_NAME + ".model." + GeneratorConfig.CLASS_NAME );
+                    for(Field field : clazz.getDeclaredFields()) {
+                        for(Map<String, Object> map : list){
+                            boolean flag = trimedLine.contains(" " + field.getName()+";") && field.getName().toLowerCase().equals(map.get("columnName"));
+                            if(flag){
+                                String remark = map.get("remark").toString();
+                                remark = remark.contains("\"")?remark.replace("\"","\\\""):remark;
+                                // 写带注释的swagger
+                                sb.append(String.format(swaggerRemark, remark, dateType, position++) + "\n");
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            // 写属性
+            sb.append("    " + trimedLine + "\n");
+            sb.append("\n");
+        }
+    }
+
 }

@@ -33,12 +33,25 @@ public class GeneratorUtil {
     }
 
     /**
+     * 第一条写的时候判断是否文件已存在，如果存在则不做操作，避免搞错
+     * 可以使用NEED_APPEND参数进行控制是否判断
+     * @throws Exception
+     */
+    public static void isAppendFile(String toPath) throws Exception {
+        boolean flag = new File(toPath).exists() && !GeneratorConfig.NEED_APPEND;
+        if (flag) {
+            throw new Exception("写入的文件：" + toPath + "已存在，请保存原文件并删除后再生成。" +
+                    "或者将GeneratorConfig的NEED_APPEND参数设置为true跳过此限制。");
+        }
+    }
+
+    /**
      * 写文件
      * @param line
      * @throws Exception
      */
     public static void writeFile(String toPath, String line)throws Exception{
-        FileUtils.writeStringToFile(new File(toPath), line+"\n", Charset.forName("UTF-8"), true);
+        FileUtils.writeStringToFile(new File(toPath), line, Charset.forName("UTF-8"), true);
     }
 
     /**

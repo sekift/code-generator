@@ -1,9 +1,6 @@
 package com.sekift.www.codegenerator;
 
-import com.sekift.www.codegenerator.service.ControllerGenerator;
-import com.sekift.www.codegenerator.service.ServiceGenerator;
-import com.sekift.www.codegenerator.service.ServiceImplGenerator;
-import com.sekift.www.codegenerator.service.VOGenerator;
+import com.sekift.www.codegenerator.service.*;
 import org.junit.Before;
 import org.junit.Test;
 

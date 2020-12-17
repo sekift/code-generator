@@ -31,7 +31,7 @@
         <fastjson.version>1.2.58</fastjson.version>
         <lombok.version>1.16.20</lombok.version>
         <beanutils.version>1.8.3</beanutils.version>
-        <collections.version>3.2.1</collections.version>
+        <collections.version>4.4</collections.version>
 
         <swagger.version>2.9.2</swagger.version>
         <swagger.ui.version>2.9.2</swagger.ui.version>
@@ -140,8 +140,8 @@
         </dependency>
 
         <dependency>
-            <groupId>commons-collections</groupId>
-            <artifactId>commons-collections</artifactId>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
             <version>${collections.version}</version>
         </dependency>
 

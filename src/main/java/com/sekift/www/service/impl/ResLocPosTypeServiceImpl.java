@@ -17,7 +17,7 @@ import org.apache.ibatis.annotations.Param;
 
 /**
  * @author: yinzhang.lu
- * @date: 2020/12/16 17:30
+ * @date: 2020/12/17 17:06
  * @description: 资源位内容表
  **/
 @Service

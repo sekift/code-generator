@@ -2,7 +2,6 @@ package com.sekift.www.controller;
 
 import com.sekift.www.service.ResLocPosTypeService;
 import com.sekift.www.tool.CommUtils;
-import com.sekift.www.tool.ErrorCodeEnum;
 import com.sekift.www.tool.LogUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,12 +18,12 @@ import org.apache.ibatis.annotations.Param;
 
 /**
  * @author: yinzhang.lu
- * @date: 2020/12/16 17:30
+ * @date: 2020/12/17 17:06
  * @description: 资源位内容表
  **/
 @RestController
 @RequestMapping("/api/reslocpostype")
-@Api(tags = {"资源位编码内容表"})
+@Api(tags = {"资源位内容表"})
 public class ResLocPosTypeController {
 
     @Autowired
@@ -60,9 +59,6 @@ public class ResLocPosTypeController {
     @PostMapping("/select")
     @ApiOperation(value = "按键查询资源位内容表数据(完成)",notes="传入对象的唯一键即可",httpMethod = "POST",hidden = false)
     public JsonRslt select(@RequestBody ResLocPosTypeVO resLocPosTypeVO){
-        if(resLocPosTypeVO == null || resLocPosTypeVO.getId() == null){
-            return JsonRslt.putErrorCode(ErrorCodeEnum.USER_ERROR_A0410.getCode(), "id不能为空");
-        }
         return resLocPosTypeService.select(resLocPosTypeVO.getId());
     }
 

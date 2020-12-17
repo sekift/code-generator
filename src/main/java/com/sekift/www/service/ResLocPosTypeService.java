@@ -10,14 +10,14 @@ import org.apache.ibatis.annotations.Param;
 
 /**
  * @author: yinzhang.lu
- * @date: 2020/12/16 17:30
+ * @date: 2020/12/17 17:06
  * @description: 资源位内容表
  **/
 public interface ResLocPosTypeService {
 
     /**
      * 按主键删除数据
-     * @param 
+     * @param id
      * @return
      **/
     JsonRslt delete(String id);
@@ -31,7 +31,7 @@ public interface ResLocPosTypeService {
 
     /**
      * 按主键查询一条数据
-     * @param 
+     * @param id
      * @return
      **/
     JsonRslt select(String id);
