@@ -9,7 +9,7 @@ import org.junit.Test;
  * @date: 2020/11/03 11:21
  * @description: 自动代码生成运行类
  */
-public class GeneratorCode {
+public class GeneratorCodeTest {
     // 填写表的名字
     private String className = "res_loc_pos_type";
     // 填写表的注释

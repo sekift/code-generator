@@ -24,7 +24,7 @@
   4.2 /dao/TestMapper.java <br/>
   4.3 /model/Test.java <br/>
   4.4 /model/TestExample.java <br/>
-5. 🔥 最后使用GeneratorCode生产如下文件： <br/>
+5. 🔥 最后使用GeneratorCodeTest生产如下文件： <br/>
   5.1 /vo/TestVO.java <br/>
   5.2 /service/TestService.java <br/>
   5.3 /service/impl/TestServiceImpl.java <br/>

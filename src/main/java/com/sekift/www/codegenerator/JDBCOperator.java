@@ -48,7 +48,7 @@ public class JDBCOperator {
                 GeneratorUtil.humpToLine(CLASS_NAME), "%");
         List<Map<String, Object>> list = new ArrayList<>();
         while(rs.next()){
-            Map<String, Object> map = new HashMap<>();
+            Map<String, Object> map = new HashMap<>(10);
             //去掉横杠
             String columnName = rs.getString("COLUMN_NAME").replace("_", "");
             //大写转小写
@@ -78,12 +78,12 @@ public class JDBCOperator {
         Map<String, String> map = readXmlFile();
         Connection connection = null;
         try {
-            String SDdriver = map.get("driver");
-            String SDurl = map.get("url");
-            String SDuser = map.get("username");
-            String SDpassword = map.get("password");
-            Class.forName(SDdriver);
-            connection = DriverManager.getConnection(SDurl, SDuser, SDpassword);
+            String driver = map.get("driver");
+            String url = map.get("url");
+            String user = map.get("username");
+            String password = map.get("password");
+            Class.forName(driver);
+            connection = DriverManager.getConnection(url, user, password);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -111,9 +111,9 @@ public class JDBCOperator {
         // 从generatorConfig.xml文件进行读取
         try {
             String fileName = GeneratorConfig.BASE_RES_DIR + "generatorConfig.xml";
-            Document document = useDom4JReadXml(fileName);
+            Document document = useDomReadXml(fileName);
             Node node = document.selectNodes("//jdbcConnection").get(0);
-            Map<String, String> map = new HashMap<String, String>();
+            Map<String, String> map = new HashMap<String, String>(4);
             map.put("driver", node.valueOf("@driverClass"));
             map.put("url", node.valueOf("@connectionURL"));
             map.put("username", node.valueOf("@userId"));
@@ -125,7 +125,7 @@ public class JDBCOperator {
         return null;
     }
 
-    private static Document useDom4JReadXml(String soucePath) {
+    private static Document useDomReadXml(String soucePath) {
         try {
             File file = new File(soucePath);
             if (!file.exists()) {

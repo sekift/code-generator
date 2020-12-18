@@ -3,6 +3,11 @@ package com.sekift.www.codegenerator.service;
 import com.sekift.www.codegenerator.GeneratorConfig;
 import com.sekift.www.codegenerator.GeneratorUtil;
 
+/**
+ * @author: yinzhang.lu
+ * @date: 2020/11/04 16:34
+ * @description: 代码生成辅助类
+ */
 public class CommonGenerator {
 
     /**
