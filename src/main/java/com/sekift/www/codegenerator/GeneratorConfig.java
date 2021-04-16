@@ -15,6 +15,7 @@ public class GeneratorConfig {
     }
 
     // 配置文件常量
+    public static String DATABASE_NAME = "coupon"; //数据库名
     public static String CLASS_NAME = ""; // 类名
     public static String NOTE_DESC = ""; //注释描述
 

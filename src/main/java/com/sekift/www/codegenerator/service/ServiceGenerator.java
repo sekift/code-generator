@@ -11,17 +11,17 @@ import java.io.BufferedReader;
  * @description: 根据dao的mapper生成service类
  */
 public class ServiceGenerator {
-    private static final String CLASS_NAME = GeneratorConfig.CLASS_NAME;
-    private static final String PACKAGE_NAME = GeneratorConfig.PACKAGE_NAME;
-    private static final String MODEL_DIR = GeneratorConfig.BASE_PKG_DIR + "dao/";
-    private static final String TO_DIR = GeneratorConfig.BASE_PKG_DIR + "service/";
-    private static final String FROM_PATH = MODEL_DIR + CLASS_NAME + "Mapper" + GeneratorConfig.PRO_NAME;
-    private static final String WRITE_NAME = "Service" + GeneratorConfig.PRO_NAME;
-    private static final String TO_PATH = TO_DIR + CLASS_NAME + WRITE_NAME;
-    private static final String VALUE_OBJECT = CLASS_NAME + "VO";
+    private String CLASS_NAME = GeneratorConfig.CLASS_NAME;
+    private String PACKAGE_NAME = GeneratorConfig.PACKAGE_NAME;
+    private String MODEL_DIR = GeneratorConfig.BASE_PKG_DIR + "dao/";
+    private String TO_DIR = GeneratorConfig.BASE_PKG_DIR + "service/";
+    private String FROM_PATH = MODEL_DIR + CLASS_NAME + "Mapper" + GeneratorConfig.PRO_NAME;
+    private String WRITE_NAME = "Service" + GeneratorConfig.PRO_NAME;
+    private String TO_PATH = TO_DIR + CLASS_NAME + WRITE_NAME;
+    private String VALUE_OBJECT = CLASS_NAME + "VO";
 
-    private static String paramName = "";
-    public static void generateService() {
+    private String paramName = "";
+    public void generateService() {
         String line, trimedLine;
         StringBuilder sb = new StringBuilder();
         try{
@@ -48,7 +48,6 @@ public class ServiceGenerator {
             sb.append("\n");
             sb.append("}");
 
-            System.out.println(sb.toString());
             GeneratorUtil.writeFile(TO_PATH, sb.toString());
             System.out.println(CLASS_NAME + WRITE_NAME + "生成成功");
         }catch(Exception e){
@@ -62,7 +61,7 @@ public class ServiceGenerator {
      * @param sb
      * @param trimedLine
      */
-    private static void generatePackageAndImport(StringBuilder sb, String trimedLine) {
+    private void generatePackageAndImport(StringBuilder sb, String trimedLine) {
         if (trimedLine.startsWith("package " + PACKAGE_NAME)) {
             String packageName = trimedLine.replace(".dao", ".service");
             sb.append(packageName + "\n");
@@ -82,7 +81,7 @@ public class ServiceGenerator {
      * @param sb
      * @param trimedLine
      */
-    private static void generateDocAndClassName(StringBuilder sb, String trimedLine) {
+    private void generateDocAndClassName(StringBuilder sb, String trimedLine) {
         if (trimedLine.startsWith("public interface ")) {
             sb.append("\n");
             // 类注释信息
@@ -100,7 +99,7 @@ public class ServiceGenerator {
      * @param trimedLine
      * @throws Exception
      */
-    private static void generateInsertMethod(StringBuilder sb, String trimedLine) throws Exception{
+    private void generateInsertMethod(StringBuilder sb, String trimedLine) throws Exception{
         if(GeneratorConfig.SERVICE_NEED_INSERT && trimedLine.startsWith("int insert(")){
             sb.append("\n");
             //方法注释信息
@@ -119,7 +118,7 @@ public class ServiceGenerator {
      * @param trimedLine
      * @throws Exception
      */
-    private static void generateDeleteMethod(StringBuilder sb, String trimedLine) throws Exception{
+    private void generateDeleteMethod(StringBuilder sb, String trimedLine) throws Exception{
         if(GeneratorConfig.SERVICE_NEED_DELETE && trimedLine.startsWith("int deleteByPrimaryKey(")){
             sb.append("\n");
             paramName = CommonGenerator.getParamName(trimedLine);
@@ -137,7 +136,7 @@ public class ServiceGenerator {
      * @param trimedLine
      * @throws Exception
      */
-    private static void generateUpdateMethod(StringBuilder sb, String trimedLine) throws Exception{
+    private void generateUpdateMethod(StringBuilder sb, String trimedLine) throws Exception{
         if(GeneratorConfig.SERVICE_NEED_UPDATE && trimedLine.startsWith("int updateByPrimaryKey(")){
             sb.append("\n");
             //方法注释信息
@@ -157,7 +156,7 @@ public class ServiceGenerator {
      * @param trimedLine
      * @throws Exception
      */
-    private static void generateSelectMethod(StringBuilder sb, String trimedLine) throws Exception{
+    private void generateSelectMethod(StringBuilder sb, String trimedLine) throws Exception{
         if(GeneratorConfig.SERVICE_NEED_SELECT && trimedLine.contains("selectByPrimaryKey(")){
             sb.append("\n");
             //方法注释信息
@@ -174,7 +173,7 @@ public class ServiceGenerator {
      * @param sb
      * @throws Exception
      */
-    private static void generateSearchMethod(StringBuilder sb, String trimedLine) throws Exception{
+    private void generateSearchMethod(StringBuilder sb, String trimedLine) throws Exception{
         if(GeneratorConfig.SERVICE_NEED_SEARCH){
             sb.append("\n");
             //方法注释信息

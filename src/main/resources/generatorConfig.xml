@@ -13,7 +13,7 @@
         </commentGenerator>
 
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
-                        connectionURL="jdbc:mysql://127.0.0.1:3306/test?serverTimezone=UTC"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/coupon?serverTimezone=UTC&amp;characterEncoding=utf-8&amp;useInformationSchema=true"
                         userId="root" password="123456" />
 
         <!-- 类型转换 -->
@@ -43,6 +43,12 @@
         </javaClientGenerator>
 
         <!-- 要生成的表名 -->
-        <table tableName="res_loc_pos_type"></table>
+        <table tableName="c_coupon"></table>
+        <table tableName="t_coupon"></table>
+        <table tableName="t_coupon_dept"></table>
+        <table tableName="t_coupon_metrics"></table>
+        <table tableName="t_coupon_rule"></table>
+        <table tableName="t_coupon_type"></table>
+        <table tableName="t_user_coupon"></table>
     </context>
 </generatorConfiguration>

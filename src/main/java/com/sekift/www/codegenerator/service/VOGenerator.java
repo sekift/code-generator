@@ -16,19 +16,19 @@ import java.util.Map;
  * @description: 从model一键生成基本VO，某些属性说明需生成后再填写
  */
 public class VOGenerator {
-    private static final String CLASS_NAME = GeneratorConfig.CLASS_NAME;
-    private static final String NOTE_DESC = GeneratorConfig.NOTE_DESC;
-    private static final boolean NEED_SWAGGER = GeneratorConfig.VO_NEED_SWAGGER;
-    private static final String MODEL_DIR = GeneratorConfig.BASE_PKG_DIR + "model/";
-    private static final String TO_DIR = GeneratorConfig.BASE_PKG_DIR + "vo/";
-    private static final String FROM_PATH = MODEL_DIR + CLASS_NAME + GeneratorConfig.PRO_NAME;
-    private static final String WRITE_NAME = "VO" + GeneratorConfig.PRO_NAME;
-    private static final String TO_PATH = TO_DIR + CLASS_NAME + WRITE_NAME;
+    private String CLASS_NAME = GeneratorConfig.CLASS_NAME;
+    private String NOTE_DESC = GeneratorConfig.NOTE_DESC;
+    private boolean NEED_SWAGGER = GeneratorConfig.VO_NEED_SWAGGER;
+    private String MODEL_DIR = GeneratorConfig.BASE_PKG_DIR + "model/";
+    private String TO_DIR = GeneratorConfig.BASE_PKG_DIR + "vo/";
+    private String FROM_PATH = MODEL_DIR + CLASS_NAME + GeneratorConfig.PRO_NAME;
+    private String WRITE_NAME = "VO" + GeneratorConfig.PRO_NAME;
+    private String TO_PATH = TO_DIR + CLASS_NAME + WRITE_NAME;
 
     // swagger顺序累加
-    private static int position = 1;
+    private int position = 1;
 
-    public static void generateVO(){
+    public void generateVO(){
         String line;
         StringBuilder sb = new StringBuilder();
         try {
@@ -47,7 +47,6 @@ public class VOGenerator {
             // 最后一个大括号
             sb.append("}");
 
-            System.out.println(sb.toString());
             GeneratorUtil.writeFile(TO_PATH, sb.toString());
             System.out.println(CLASS_NAME + WRITE_NAME + "生成成功");
         }catch(Exception e){
@@ -61,7 +60,7 @@ public class VOGenerator {
      * @param sb
      * @param trimedLine
      */
-    private static void generatePackageAndImport(StringBuilder sb, String trimedLine) {
+    private void generatePackageAndImport(StringBuilder sb, String trimedLine) {
         if (trimedLine.startsWith("package " + GeneratorConfig.PACKAGE_NAME)) {
             // 包名
             String packageName = trimedLine.replace(".model", ".vo");
@@ -87,7 +86,7 @@ public class VOGenerator {
      * @param sb
      * @param trimedLine
      */
-    private static void generateDocAndClassName(StringBuilder sb, String trimedLine) {
+    private void generateDocAndClassName(StringBuilder sb, String trimedLine) {
         if (trimedLine.startsWith("public class ")) {
             sb.append("\n");
             // 类注释信息
@@ -111,7 +110,7 @@ public class VOGenerator {
      * @param trimedLine
      * @throws Exception
      */
-    private static void generateFields(StringBuilder sb, String trimedLine) throws Exception{
+    private void generateFields(StringBuilder sb, String trimedLine) throws Exception{
         if (trimedLine.startsWith("private ")) {
             if (NEED_SWAGGER) {
                 // 类型的swagger示例

@@ -11,19 +11,19 @@ import java.io.BufferedReader;
  * @description: 从service类生成controller类
  */
 public class ControllerGenerator {
-    public static final String CLASS_NAME = GeneratorConfig.CLASS_NAME;
-    public static final String NOTE_DESC = GeneratorConfig.NOTE_DESC;
-    public static final boolean NEED_SWAGGER = GeneratorConfig.CONTROLLER_NEED_SWAGGER;
-    public static final String PACKAGE_NAME = GeneratorConfig.PACKAGE_NAME;
-    public static final String MODEL_DIR = GeneratorConfig.BASE_PKG_DIR + "service/";
-    public static final String TO_DIR = GeneratorConfig.BASE_PKG_DIR + "controller/";
-    public static final String FROM_PATH = MODEL_DIR + CLASS_NAME + "Service" + GeneratorConfig.PRO_NAME;
-    public static final String WRITE_NAME = "Controller" + GeneratorConfig.PRO_NAME;
-    public static final String TO_PATH = TO_DIR + CLASS_NAME + WRITE_NAME;
-    public static final String VALUE_OBJECT = CLASS_NAME + "VO";
+    public String CLASS_NAME = GeneratorConfig.CLASS_NAME;
+    public String NOTE_DESC = GeneratorConfig.NOTE_DESC;
+    public boolean NEED_SWAGGER = GeneratorConfig.CONTROLLER_NEED_SWAGGER;
+    public String PACKAGE_NAME = GeneratorConfig.PACKAGE_NAME;
+    public String MODEL_DIR = GeneratorConfig.BASE_PKG_DIR + "service/";
+    public String TO_DIR = GeneratorConfig.BASE_PKG_DIR + "controller/";
+    public String FROM_PATH = MODEL_DIR + CLASS_NAME + "Service" + GeneratorConfig.PRO_NAME;
+    public String WRITE_NAME = "Controller" + GeneratorConfig.PRO_NAME;
+    public String TO_PATH = TO_DIR + CLASS_NAME + WRITE_NAME;
+    public String VALUE_OBJECT = CLASS_NAME + "VO";
 
-    private static String paramName = "";
-    public static void generateController() {
+    private String paramName = "";
+    public void generateController() {
         String line, trimedLine;
         StringBuilder sb = new StringBuilder();
         try{
@@ -51,7 +51,6 @@ public class ControllerGenerator {
             sb.append("\n");
             sb.append("}");
 
-            System.out.println(sb.toString());
             GeneratorUtil.writeFile(TO_PATH, sb.toString());
             System.out.println(CLASS_NAME + WRITE_NAME + "生成成功");
         }catch(Exception e){
@@ -65,7 +64,7 @@ public class ControllerGenerator {
      * @param sb
      * @param trimedLine
      */
-    private static void generatePackageAndImport(StringBuilder sb, String trimedLine) {
+    private void generatePackageAndImport(StringBuilder sb, String trimedLine) {
         if (trimedLine.startsWith("package " + PACKAGE_NAME)) {
             String packageName = trimedLine.replace(".service", ".controller");
             sb.append(packageName + "\n");
@@ -92,7 +91,7 @@ public class ControllerGenerator {
      * @param sb
      * @param trimedLine
      */
-    private static void generateDocAndClassName(StringBuilder sb, String trimedLine) {
+    private void generateDocAndClassName(StringBuilder sb, String trimedLine) {
         if (trimedLine.startsWith("public interface ")) {
             sb.append("\n");
             //类注释信息
@@ -122,7 +121,7 @@ public class ControllerGenerator {
      * @param trimedLine
      * @throws Exception
      */
-    private static void generateInsertMethod(StringBuilder sb, String trimedLine) throws Exception{
+    private void generateInsertMethod(StringBuilder sb, String trimedLine) throws Exception{
         if(GeneratorConfig.SERVICE_NEED_INSERT && trimedLine.startsWith("JsonRslt insert(")){
             sb.append("\n");
             //方法注释信息
@@ -152,7 +151,7 @@ public class ControllerGenerator {
      * @param trimedLine
      * @throws Exception
      */
-    private static void generateDeleteMethod(StringBuilder sb, String trimedLine) throws Exception{
+    private void generateDeleteMethod(StringBuilder sb, String trimedLine) throws Exception{
         if(GeneratorConfig.SERVICE_NEED_DELETE && trimedLine.startsWith("JsonRslt delete(")){
             sb.append("\n");
            paramName = CommonGenerator.getParamName(trimedLine);
@@ -184,7 +183,7 @@ public class ControllerGenerator {
      * @param trimedLine
      * @throws Exception
      */
-    private static void generateUpdateMethod(StringBuilder sb, String trimedLine) throws Exception{
+    private void generateUpdateMethod(StringBuilder sb, String trimedLine) throws Exception{
         if(GeneratorConfig.SERVICE_NEED_UPDATE && trimedLine.startsWith("JsonRslt update(")){
             sb.append("\n");
             //方法注释信息
@@ -215,7 +214,7 @@ public class ControllerGenerator {
      * @param trimedLine
      * @throws Exception
      */
-    private static void generateSelectMethod(StringBuilder sb, String trimedLine) throws Exception{
+    private void generateSelectMethod(StringBuilder sb, String trimedLine) throws Exception{
         if(GeneratorConfig.SERVICE_NEED_SELECT && trimedLine.contains("JsonRslt select(")){
             sb.append("\n");
             //方法注释信息
@@ -245,7 +244,7 @@ public class ControllerGenerator {
      * @param sb
      * @throws Exception
      */
-    private static void generateSearchMethod(StringBuilder sb, String trimedLine) throws Exception{
+    private void generateSearchMethod(StringBuilder sb, String trimedLine) throws Exception{
         if(GeneratorConfig.SERVICE_NEED_SEARCH  && trimedLine.contains("JsonRslt search(")){
             sb.append("\n");
             //方法注释信息

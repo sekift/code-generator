@@ -14,12 +14,15 @@ import java.util.Map;
 /**
  * @author: yinzhang.lu
  * @date: 2020/11/05 15:34
- * @description: 从数据库中拿出表的建表语句，用于vo说明
+ * @description: 从数据库中拿出表的建表语句
  */
 public class JDBCOperator {
+
+    public static final String DATABASE_NAME = GeneratorConfig.DATABASE_NAME; // 数据库名
     public static final String CLASS_NAME = GeneratorConfig.CLASS_NAME; // 类名
     public static void main(String[] args) {
-        System.out.println(queryTableMetadata());
+//        System.out.println(queryTableMetadata());
+        System.out.println(printTableNames());
     }
 
     /**
@@ -33,6 +36,31 @@ public class JDBCOperator {
         try {
             DatabaseMetaData databaseMetaData = connection.getMetaData();
             list = printColumnInfo(databaseMetaData);
+            return list;
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            closeAll(connection, null, null);
+        }
+        return null;
+    }
+
+    /**
+     * 输出表名和注解，url链接需要加上&amp;useInformationSchema=true
+     */
+    public static List<Map<String, String>> printTableNames() {
+        Connection connection = jdbcConnection();
+        List<Map<String, String>> list = new ArrayList<>();
+        try {
+            DatabaseMetaData databaseMetaData = connection.getMetaData();
+            //获取表名的结果集
+            ResultSet rs = databaseMetaData.getTables(DATABASE_NAME, null, null, new String[]{"TABLE"});
+            while (rs.next()) {
+                Map<String, String> map = new HashMap<>(4);
+                map.put("tableName", rs.getString("TABLE_NAME"));
+                map.put("remark", rs.getString("REMARKS"));
+                list.add(map);
+            }
             return list;
         }catch (Exception e){
             e.printStackTrace();
