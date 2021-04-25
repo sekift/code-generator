@@ -71,7 +71,7 @@ public class ServiceImplGenerator {
             sb.append("import " + PACKAGE_NAME + ".service."+ CLASS_NAME +"Service;" + "\n");
             sb.append("import " + PACKAGE_NAME + ".tool.CommUtils;" + "\n");
             sb.append("import " + PACKAGE_NAME + ".tool.ErrorCodeEnum;" + "\n");
-            sb.append("import " + PACKAGE_NAME + ".tool.LogUtils;" + "\n");
+            sb.append("import lombok.extern.slf4j.Slf4j;" + "\n");
             sb.append("import org.springframework.beans.factory.annotation.Autowired;" + "\n");
             sb.append("import org.springframework.stereotype.Service;" + "\n");
             sb.append("\n");
@@ -94,6 +94,8 @@ public class ServiceImplGenerator {
             CommonGenerator.classDescription(sb);
 
             //引入注解
+
+            sb.append("@Slf4j" + "\n");
             sb.append("@Service" + "\n");
             //类名
             String className = trimedLine.replace("interface", "class")
@@ -137,7 +139,7 @@ public class ServiceImplGenerator {
                 sb.append("                return JsonRslt.putSuccessMessage(\""+NOTE_DESC+"插入成功\");" + "\n");
                 sb.append("            }" + "\n");
                 sb.append("        } catch (Exception e) {" + "\n");
-                sb.append("            LogUtils.logError(CommUtils.getException(e));" + "\n");
+                sb.append("            log.error(CommUtils.getException(e));" + "\n");
                 sb.append("        }" + "\n");
                 sb.append("        return JsonRslt.putErrorCode(ErrorCodeEnum.SERVICE_ERROR_C0300.getCode(), \""+NOTE_DESC+"插入失败\");" + "\n");
             }else{
@@ -171,7 +173,7 @@ public class ServiceImplGenerator {
                 sb.append("                return JsonRslt.putSuccessMessage(\""+NOTE_DESC+"删除成功\");" + "\n");
                 sb.append("            }" + "\n");
                 sb.append("        } catch (Exception e) {" + "\n");
-                sb.append("            LogUtils.logError(CommUtils.getException(e));" + "\n");
+                sb.append("            log.error(CommUtils.getException(e));" + "\n");
                 sb.append("        }" + "\n");
                 sb.append("        return JsonRslt.putErrorCode(ErrorCodeEnum.SERVICE_ERROR_C0300.getCode(), \""+NOTE_DESC+"删除失败\");" + "\n");
             }else{
@@ -215,7 +217,7 @@ public class ServiceImplGenerator {
                 }
                 sb.append("            }" + "\n");
                 sb.append("        } catch (Exception e) {" + "\n");
-                sb.append("            LogUtils.logError(CommUtils.getException(e));" + "\n");
+                sb.append("            log.error(CommUtils.getException(e));" + "\n");
                 sb.append("        }" + "\n");
                 sb.append("        return JsonRslt.putErrorCode(ErrorCodeEnum.SERVICE_ERROR_C0300.getCode(), \""+NOTE_DESC+"修改失败\");" + "\n");
             }else{
@@ -286,7 +288,7 @@ public class ServiceImplGenerator {
                         + "Mapper.selectByExample(example);" + "\n");
                 sb.append("             return JsonRslt.putSuccess(list);" + "\n");
                 sb.append("        } catch (Exception e) {" + "\n");
-                sb.append("             LogUtils.logError(CommUtils.getException(e));" + "\n");
+                sb.append("            log.error(CommUtils.getException(e));" + "\n");
                 sb.append("        }" + "\n");
                 sb.append("        return JsonRslt.putErrorCode(ErrorCodeEnum.SERVICE_ERROR_C0300.getCode(), \""+NOTE_DESC+"查询失败\");" + "\n");
             }else{

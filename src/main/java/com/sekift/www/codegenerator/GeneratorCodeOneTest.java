@@ -11,9 +11,9 @@ import org.junit.Test;
  */
 public class GeneratorCodeOneTest {
     /** 填写表的名字*/
-    private String className = "sys_part_role";
+    private String className = "c_coupon";
     /** 填写表的注释*/
-    private String noteDesc = "运营系统部门角色表";
+    private String noteDesc = "满减劵";
 
     @Before
     public void setUp() {

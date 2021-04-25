@@ -44,11 +44,5 @@
 
         <!-- 要生成的表名 -->
         <table tableName="c_coupon"></table>
-        <table tableName="t_coupon"></table>
-        <table tableName="t_coupon_dept"></table>
-        <table tableName="t_coupon_metrics"></table>
-        <table tableName="t_coupon_rule"></table>
-        <table tableName="t_coupon_type"></table>
-        <table tableName="t_user_coupon"></table>
     </context>
 </generatorConfiguration>

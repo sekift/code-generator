@@ -71,7 +71,6 @@ public class ControllerGenerator {
             sb.append("\n");
             sb.append("import " + PACKAGE_NAME + ".service."+ CLASS_NAME +"Service;" + "\n");
             sb.append("import " + PACKAGE_NAME + ".tool.CommUtils;" + "\n");
-            sb.append("import " + PACKAGE_NAME + ".tool.LogUtils;" + "\n");
             sb.append("import org.springframework.beans.factory.annotation.Autowired;" + "\n");
             sb.append("import org.springframework.web.bind.annotation.*;" + "\n");
             if (NEED_SWAGGER) {
