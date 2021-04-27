@@ -1,6 +1,6 @@
 <h1 align="center">Code Generator</h1>
 <div align="center">
-快速自动代码生成器
+快速自动代码生成器 :o: :x:
 </div>
 
 ## ✨ 特性
