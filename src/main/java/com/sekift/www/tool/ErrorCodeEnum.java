@@ -9,6 +9,9 @@ import java.util.Map;
  * @description: 错误码枚举
  **/
 public enum ErrorCodeEnum {
+    /**
+     * 错误码枚举
+     */
     SUCCESS("00000", "成功"),
     USER_ERROR_A0001("A0001", "用户端错误"),
     USER_ERROR_A0100("A0100", "用户注册错误"),

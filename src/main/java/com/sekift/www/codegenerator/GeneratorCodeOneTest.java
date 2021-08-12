@@ -11,9 +11,9 @@ import org.junit.Test;
  */
 public class GeneratorCodeOneTest {
     /** 填写表的名字*/
-    private String className = "c_coupon";
+    private String className = "c_debt_info";
     /** 填写表的注释*/
-    private String noteDesc = "满减劵";
+    private String noteDesc = "债务/债权人表";
 
     @Before
     public void setUp() {

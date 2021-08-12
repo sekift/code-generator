@@ -143,7 +143,7 @@ public class ServiceImplGenerator {
                 sb.append("        }" + "\n");
                 sb.append("        return JsonRslt.putErrorCode(ErrorCodeEnum.SERVICE_ERROR_C0300.getCode(), \""+NOTE_DESC+"插入失败\");" + "\n");
             }else{
-                sb.append("         return null;" + "\n");
+                sb.append("        return null;" + "\n");
             }
             sb.append("    }" + "\n");
         }
@@ -206,7 +206,7 @@ public class ServiceImplGenerator {
                 sb.append("            CommUtils.copyProperties("
                         + GeneratorUtil.firstCharLowerCase(CLASS_NAME) + ", " + GeneratorUtil.firstCharLowerCase(CLASS_NAME) + "VO);" + "\n");
                 sb.append("            int rows = "
-                        + GeneratorUtil.firstCharLowerCase(CLASS_NAME) + "Mapper.updateByPrimaryKey("
+                        + GeneratorUtil.firstCharLowerCase(CLASS_NAME) + "Mapper.updateByPrimaryKeySelective("
                         + GeneratorUtil.firstCharLowerCase(CLASS_NAME) + ");" + "\n");
                 sb.append("            if (rows > 0) {" + "\n");
                 if(GeneratorConfig.SERVICE_NEED_SELECT) {
