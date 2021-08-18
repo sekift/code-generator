@@ -6,7 +6,7 @@ import com.sekift.www.codegenerator.GeneratorUtil;
 import java.io.BufferedReader;
 
 /**
- * @author: yinzhang.lu
+ * @author: sekift
  * @date: 2020/11/04 16:34
  * @description: 从service类生成controller类
  */

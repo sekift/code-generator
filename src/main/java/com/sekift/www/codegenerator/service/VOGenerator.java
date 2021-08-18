@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author: yinzhang.lu
+ * @author: sekift
  * @date: 2020/10/30 17:20
  * @description: 从model一键生成基本VO，某些属性说明需生成后再填写
  */

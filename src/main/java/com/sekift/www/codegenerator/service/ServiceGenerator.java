@@ -6,7 +6,7 @@ import com.sekift.www.codegenerator.GeneratorUtil;
 import java.io.BufferedReader;
 
 /**
- * @author: yinzhang.lu
+ * @author: sekift
  * @date: 2020/10/30 17:20
  * @description: 根据dao的mapper生成service类
  */

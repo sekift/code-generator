@@ -4,7 +4,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * @author: yinzhang.lu
+ * @author: sekift
  * @date: 2020/10/20 11:15
  * @description: 标准的JSON对象输出格式
  **/

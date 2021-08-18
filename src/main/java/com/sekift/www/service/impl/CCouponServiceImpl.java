@@ -1,22 +1,21 @@
 package com.sekift.www.service.impl;
 
 import com.sekift.www.dao.CCouponMapper;
+import com.sekift.www.model.CCoupon;
+import com.sekift.www.model.CCouponExample;
 import com.sekift.www.service.CCouponService;
 import com.sekift.www.tool.CommUtils;
 import com.sekift.www.tool.ErrorCodeEnum;
+import com.sekift.www.tool.JsonRslt;
+import com.sekift.www.vo.CCouponVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sekift.www.tool.JsonRslt;
-import com.sekift.www.vo.CCouponVO;
-import com.sekift.www.model.CCoupon;
-import com.sekift.www.model.CCouponExample;
 import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
 /**
- * @author: yinzhang.lu
+ * @author: sekift
  * @date: 2021/04/25 16:31
  * @description: 满减劵
  **/

@@ -23,7 +23,7 @@ import java.io.InputStream;
 import java.util.Properties;
 
 /**
- * @author: yinzhang.lu
+ * @author: sekift
  * @date: 2020/10/30 16:00
  * @description: MyBatis工具类，主要处理与数据库的交互
  */

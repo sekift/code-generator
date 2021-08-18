@@ -1,7 +1,7 @@
 package com.sekift.www.codegenerator;
 
 /**
- * @author: yinzhang.lu
+ * @author: sekift
  * @date: 2020/11/04 9:08
  * @description: 代码生成常量
  */

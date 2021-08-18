@@ -5,7 +5,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 /**
- * @author: yinzhang.lu
+ * @author: sekift
  * @date: 2020/10/20 11:15
  * @description: 分页所用参数，默认1页10条数据
  **/

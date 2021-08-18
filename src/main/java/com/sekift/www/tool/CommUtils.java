@@ -3,7 +3,7 @@ package com.sekift.www.tool;
 import org.apache.commons.beanutils.PropertyUtils;
 
 /**
- * @author: yinzhang.lu
+ * @author: sekift
  * @date: 2020/10/20 11:15
  * @description: 通用工具类
  */

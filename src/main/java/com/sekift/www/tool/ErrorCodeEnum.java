@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author: yinzhang.lu
+ * @author: sekift
  * @date: 2020/12/16 16:21
  * @description: 错误码枚举
  **/

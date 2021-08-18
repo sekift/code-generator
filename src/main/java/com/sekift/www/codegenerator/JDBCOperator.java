@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author: yinzhang.lu
+ * @author: sekift
  * @date: 2020/11/05 15:34
  * @description: 从数据库中拿出表的建表语句
  */

@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 /**
- * @author: yinzhang.lu
+ * @author: sekift
  * @date: 2021/04/25 16:31
  * @description: 满减劵
  **/

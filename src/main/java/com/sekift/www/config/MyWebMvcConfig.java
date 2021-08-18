@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.TimeZone;
 
 /**
- * @author: yinzhang.lu
+ * @author: sekift
  * @date: 2020/10/20 17:15
  * @description: 拦截器，extends WebMvcConfigurationSupport或implements WebMvcConfigurer，但有些小不同
  */

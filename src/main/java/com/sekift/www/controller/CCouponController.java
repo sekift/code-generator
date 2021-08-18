@@ -1,22 +1,18 @@
 package com.sekift.www.controller;
 
 import com.sekift.www.service.CCouponService;
-import com.sekift.www.tool.CommUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-
 import com.sekift.www.tool.JsonRslt;
 import com.sekift.www.vo.CCouponVO;
-import com.sekift.www.model.CCoupon;
-import com.sekift.www.model.CCouponExample;
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @author: yinzhang.lu
+ * @author: sekift
  * @date: 2021/04/25 16:32
  * @description: 满减劵
  **/

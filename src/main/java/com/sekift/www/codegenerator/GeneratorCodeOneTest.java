@@ -5,7 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * @author: yinzhang.lu
+ * @author: sekift
  * @date: 2020/11/03 11:21
  * @description: 自动代码生成运行类
  */
