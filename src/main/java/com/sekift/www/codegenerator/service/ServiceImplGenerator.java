@@ -6,9 +6,9 @@ import com.sekift.www.codegenerator.GeneratorUtil;
 import java.io.BufferedReader;
 
 /**
- * @author: sekift
- * @date: 2020/11/04 14:32
- * @description: 从service类生成serviceImpl类
+ * @author sekift
+ * @date 2020/11/04 14:32
+ * @description 从service类生成serviceImpl类
  */
 public class ServiceImplGenerator {
     public String CLASS_NAME = GeneratorConfig.CLASS_NAME;
@@ -104,10 +104,17 @@ public class ServiceImplGenerator {
             sb.append(className + "\n");
             sb.append("\n");
             // 注入
-            sb.append("    @Autowired" + "\n");
-            String autowiredClass = "    private " + CLASS_NAME + "Mapper "+
+            String autowiredClass = "    private final " + CLASS_NAME + "Mapper "+
                     GeneratorUtil.firstCharLowerCase(CLASS_NAME)+ "Mapper;";
             sb.append(autowiredClass + "\n");
+            sb.append("\n");
+            sb.append("    @Autowired" + "\n");
+            String autowiredConstructor = "    public "+CLASS_NAME + "ServiceImpl("
+                    + CLASS_NAME + "Mapper "+ GeneratorUtil.firstCharLowerCase(CLASS_NAME)+ "Mapper){"
+                    + "\n" + "        this."+ GeneratorUtil.firstCharLowerCase(CLASS_NAME)+ "Mapper = "
+                    + GeneratorUtil.firstCharLowerCase(CLASS_NAME)+ "Mapper;" + "\n"
+                    + "    }" + "\n";
+            sb.append(autowiredConstructor + "\n");
         }
     }
 
@@ -136,7 +143,7 @@ public class ServiceImplGenerator {
                         + GeneratorUtil.firstCharLowerCase(CLASS_NAME) + "Mapper.insert("
                         + GeneratorUtil.firstCharLowerCase(CLASS_NAME) + ");" + "\n");
                 sb.append("            if(rows > 0){" + "\n");
-                sb.append("                return JsonRslt.putSuccessMessage(\""+NOTE_DESC+"插入成功\");" + "\n");
+                sb.append("                return JsonRslt.putSuccessMessage(\"插入"+NOTE_DESC+"成功\");" + "\n");
                 sb.append("            }" + "\n");
                 sb.append("        } catch (Exception e) {" + "\n");
                 sb.append("            log.error(CommUtils.getException(e));" + "\n");
@@ -170,12 +177,12 @@ public class ServiceImplGenerator {
                         + GeneratorUtil.firstCharLowerCase(CLASS_NAME) + "Mapper.deleteByPrimaryKey("
                         + paramName + ");" + "\n");
                 sb.append("            if (rows > 0) {" + "\n");
-                sb.append("                return JsonRslt.putSuccessMessage(\""+NOTE_DESC+"删除成功\");" + "\n");
+                sb.append("                return JsonRslt.putSuccessMessage(\"删除"+NOTE_DESC+"成功\");" + "\n");
                 sb.append("            }" + "\n");
                 sb.append("        } catch (Exception e) {" + "\n");
                 sb.append("            log.error(CommUtils.getException(e));" + "\n");
                 sb.append("        }" + "\n");
-                sb.append("        return JsonRslt.putErrorCode(ErrorCodeEnum.SERVICE_ERROR_C0300.getCode(), \""+NOTE_DESC+"删除失败\");" + "\n");
+                sb.append("        return JsonRslt.putErrorCode(ErrorCodeEnum.SERVICE_ERROR_C0300.getCode(), \"删除"+NOTE_DESC+"失败\");" + "\n");
             }else{
                 sb.append("        return null;" + "\n");
             }
@@ -213,13 +220,13 @@ public class ServiceImplGenerator {
                     sb.append("                return this.select(" + GeneratorUtil.firstCharLowerCase(CLASS_NAME)
                             + ".get" + GeneratorUtil.firstCharUpperCase(paramName) + "());" + "\n");
                 }else{
-                    sb.append("                return JsonRslt.putSuccessMessage(\"" + NOTE_DESC + "修改成功\");" + "\n");
+                    sb.append("                return JsonRslt.putSuccessMessage(\"修改" + NOTE_DESC + "成功\");" + "\n");
                 }
                 sb.append("            }" + "\n");
                 sb.append("        } catch (Exception e) {" + "\n");
                 sb.append("            log.error(CommUtils.getException(e));" + "\n");
                 sb.append("        }" + "\n");
-                sb.append("        return JsonRslt.putErrorCode(ErrorCodeEnum.SERVICE_ERROR_C0300.getCode(), \""+NOTE_DESC+"修改失败\");" + "\n");
+                sb.append("        return JsonRslt.putErrorCode(ErrorCodeEnum.SERVICE_ERROR_C0300.getCode(), \"修改"+NOTE_DESC+"失败\");" + "\n");
             }else{
                 sb.append("        return null;" + "\n");
             }
@@ -290,7 +297,7 @@ public class ServiceImplGenerator {
                 sb.append("        } catch (Exception e) {" + "\n");
                 sb.append("            log.error(CommUtils.getException(e));" + "\n");
                 sb.append("        }" + "\n");
-                sb.append("        return JsonRslt.putErrorCode(ErrorCodeEnum.SERVICE_ERROR_C0300.getCode(), \""+NOTE_DESC+"查询失败\");" + "\n");
+                sb.append("        return JsonRslt.putErrorCode(ErrorCodeEnum.SERVICE_ERROR_C0300.getCode(), \"查询"+NOTE_DESC+"失败\");" + "\n");
             }else{
                 sb.append("        return null;" + "\n");
             }

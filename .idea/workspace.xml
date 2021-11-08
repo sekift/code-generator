@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="7b92a609-eede-4d5d-bf48-98691d5337c2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/CodeGeneratorApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sekift/www/CodeGeneratorApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/GeneratorCodeAllTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/GeneratorCodeAllTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/GeneratorCodeOneTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/GeneratorCodeOneTest.java" afterDir="false" />
@@ -16,21 +22,22 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/service/VOGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/service/VOGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/config/MyWebMvcConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sekift/www/config/MyWebMvcConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/config/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sekift/www/config/SwaggerConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/controller/CCouponController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sekift/www/controller/CCouponController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/service/CCouponService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sekift/www/service/CCouponService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/service/impl/CCouponServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sekift/www/service/impl/CCouponServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/controller/CCouponController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/dao/CCouponMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/model/CCoupon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/model/CCouponExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/service/CCouponService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/service/impl/CCouponServiceImpl.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/tool/CommUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sekift/www/tool/CommUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/tool/ErrorCodeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sekift/www/tool/ErrorCodeEnum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/tool/JsonRslt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sekift/www/tool/JsonRslt.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/vo/BaseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sekift/www/vo/BaseEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/vo/CCouponVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sekift/www/vo/CCouponVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/vo/CCouponVO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/CCouponMapper.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/sekift/www/conf/CommonTestConf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/sekift/www/conf/CommonTestConf.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/sekift/www/service/ResLocIdeaServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/sekift/www/service/ResLocIdeaServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/sekift/www/util/MyBatisUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/sekift/www/util/MyBatisUtil.java" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/out/" />
-    <ignored path="$PROJECT_DIR$/target/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,103 +45,6 @@
   </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/sekift/www/util/MyBatisUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/sekift/www/OmsApplicationTests.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/sekift/www/tool/ErrorCodeEnum.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/service/ServiceImplGenerator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-5987">
-              <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="22" column="19" lean-forward="true" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/sekift/www/tool/CommUtils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/sekift/www/tool/JsonRslt.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/service/CommonGenerator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="34" column="37" lean-forward="true" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/service/ServiceGenerator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3397">
-              <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/service/ControllerGenerator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="111" column="63" lean-forward="true" selection-start-line="111" selection-start-column="63" selection-end-line="111" selection-end-column="63" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -148,6 +58,17 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/sekift/www/tool/JsonRslt.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/service/CommonGenerator.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/generatorConfig.xml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/service/ServiceGenerator.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/application.yml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/service/ControllerGenerator.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/sekift/www/vo/BaseEntity.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/sekift/www/tool/CommUtils.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -188,13 +109,6 @@
       </list>
     </option>
   </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
-    </option>
-  </component>
   <component name="MavenProjectNavigator">
     <treeState>
       <expand>
@@ -216,16 +130,18 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-18" />
     <option name="width" value="1936" />
     <option name="height" value="1045" />
   </component>
+  <component name="ProjectId" id="20Lx2gd0FhwUZDcFlUjNWOEfKrq" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Course" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -422,11 +338,15 @@
       <pane id="PackagesPane" />
     </panes>
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../luyinzhang/oms/mini_prog_wt_mall" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -437,18 +357,6 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\workspace\code-generator" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager" selected="JUnit.GeneratorCodeOneTest.generatorOne">
     <configuration name="CodeGeneratorApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -534,6 +442,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -552,7 +461,11 @@
       <workItem from="1627638928830" duration="357000" />
       <workItem from="1628674289232" duration="960000" />
       <workItem from="1628735086596" duration="1514000" />
-      <workItem from="1629276840051" duration="506000" />
+      <workItem from="1629276840051" duration="617000" />
+      <workItem from="1632639390271" duration="50000" />
+      <workItem from="1635837466732" duration="690000" />
+      <workItem from="1636101686965" duration="5042000" />
+      <workItem from="1636333997611" duration="850000" />
     </task>
     <servers />
   </component>
@@ -589,19 +502,20 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13090000" />
+    <option name="totallyTimeSpent" value="13251000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-18" y="0" width="1936" height="1045" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21588486" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21801706" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Educational.CheckDetails" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32930845" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3194292" />
@@ -616,6 +530,7 @@
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Spring" order="12" />
       <window_info anchor="bottom" id="Messages" order="13" />
+      <window_info anchor="right" id="Key Promoter X" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -629,7 +544,7 @@
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sekift/www/controller/TCouponRuleController.java" />
@@ -843,6 +758,9 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitattributes">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sekift/www/tool/CommUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
@@ -857,20 +775,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/service/ControllerGenerator.java">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="111" column="63" lean-forward="true" selection-start-line="111" selection-start-column="63" selection-end-line="111" selection-end-column="63" />
+        <state relative-caret-position="575">
+          <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/service/CommonGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="34" column="37" lean-forward="true" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
+        <state relative-caret-position="782">
+          <caret line="34" column="37" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/service/ControllerGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2914">
+          <caret line="111" column="63" selection-start-line="111" selection-start-column="63" selection-end-line="111" selection-end-column="63" />
         </state>
       </provider>
     </entry>
@@ -883,15 +808,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/service/ServiceImplGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5987">
-          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="22" column="19" lean-forward="true" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+        <state relative-caret-position="637">
+          <caret line="296" column="38" lean-forward="true" selection-start-line="296" selection-start-column="38" selection-end-line="296" selection-end-column="38" />
         </state>
       </provider>
     </entry>

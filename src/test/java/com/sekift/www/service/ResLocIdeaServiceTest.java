@@ -10,9 +10,9 @@ import org.springframework.context.annotation.Import;
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**
- * @author: sekift
- * @date: 2020/10/29 11:17
- * @description: TerminalTypeInfoService类的测试
+ * @author sekift
+ * @date 2020/10/29 11:17
+ * @description TerminalTypeInfoService类的测试
  */
 @RunWith(SpringRunner.class)
 @Import({MyBatisUtil.class})

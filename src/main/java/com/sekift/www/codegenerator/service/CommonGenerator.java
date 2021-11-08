@@ -4,9 +4,9 @@ import com.sekift.www.codegenerator.GeneratorConfig;
 import com.sekift.www.codegenerator.GeneratorUtil;
 
 /**
- * @author: sekift
- * @date: 2020/11/04 16:34
- * @description: 代码生成辅助类
+ * @author sekift
+ * @date 2020/11/04 16:34
+ * @description 代码生成辅助类
  */
 public class CommonGenerator {
 
@@ -24,14 +24,13 @@ public class CommonGenerator {
     /**
      * 类注释信息
      * @param sb
-     * @return
      */
     public static void classDescription(StringBuilder sb) {
         if (GeneratorConfig.NEED_NOTE) {
             sb.append("/**" + "\n");
-            sb.append(" * @author: ").append(GeneratorConfig.NOTE_AUTHOR).append("\n");
-            sb.append(" * @date: ").append(GeneratorUtil.getStringDate()).append("\n");
-            sb.append(" * @description: ").append(GeneratorConfig.NOTE_DESC).append("\n");
+            sb.append(" * @author ").append(GeneratorConfig.NOTE_AUTHOR).append("\n");
+            sb.append(" * @date ").append(GeneratorUtil.getStringDate()).append("\n");
+            sb.append(" * @description ").append(GeneratorConfig.NOTE_DESC).append("\n");
             sb.append(" **/" + "\n");
         }
     }
@@ -39,14 +38,13 @@ public class CommonGenerator {
     /**
      * 方法注释信息
      * @param sb
-     * @return
      */
     public static void methodDescription(StringBuilder sb, String desc, String paramName) {
         if (GeneratorConfig.NEED_NOTE) {
             sb.append("    /**" + "\n");
             sb.append("     * ").append(desc).append("\n");
-            sb.append("     * @param ").append(paramName).append("\n");
-            sb.append("     * @return" + "\n");
+            sb.append("     * @param ").append(paramName).append(" 入参").append("\n");
+            sb.append("     * @return JSON" + "\n");
             sb.append("     **/" + "\n");
         }
     }

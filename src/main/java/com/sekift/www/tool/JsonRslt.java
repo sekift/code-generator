@@ -4,9 +4,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * @author: sekift
- * @date: 2020/10/20 11:15
- * @description: 标准的JSON对象输出格式
+ * @author sekift
+ * @date 2020/10/20 11:15
+ * @description 标准的JSON对象输出格式
  **/
 @ApiModel(description="后台向前台返回的JSON对象")
 public class JsonRslt implements java.io.Serializable {

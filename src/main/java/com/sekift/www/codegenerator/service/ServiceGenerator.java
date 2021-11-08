@@ -6,9 +6,9 @@ import com.sekift.www.codegenerator.GeneratorUtil;
 import java.io.BufferedReader;
 
 /**
- * @author: sekift
- * @date: 2020/10/30 17:20
- * @description: 根据dao的mapper生成service类
+ * @author sekift
+ * @date 2020/10/30 17:20
+ * @description 根据dao的mapper生成service类
  */
 public class ServiceGenerator {
     private String CLASS_NAME = GeneratorConfig.CLASS_NAME;

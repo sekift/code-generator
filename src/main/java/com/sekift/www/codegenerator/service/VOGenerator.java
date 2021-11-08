@@ -11,9 +11,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author: sekift
- * @date: 2020/10/30 17:20
- * @description: 从model一键生成基本VO，某些属性说明需生成后再填写
+ * @author sekift
+ * @date 2020/10/30 17:20
+ * @description 从model一键生成基本VO，某些属性说明需生成后再填写
  */
 public class VOGenerator {
     private String CLASS_NAME = GeneratorConfig.CLASS_NAME;
@@ -114,20 +114,30 @@ public class VOGenerator {
         if (trimedLine.startsWith("private ")) {
             if (NEED_SWAGGER) {
                 // 类型的swagger示例
-                String dateType =
-                        (trimedLine.contains("private Date")?
-                                "dataType = \"date\", example = \"2020-12-12 12:00:00\",":
-                                "example = \"\",");
+                String typeExample = "";
+                if(trimedLine.contains("private Date")){
+                    typeExample = "dataType = \"date\", example = \"2020-12-12 12:00:00\",";
+                }else if(trimedLine.contains("private Integer")||trimedLine.contains("private Long")
+                        ||trimedLine.contains("private Byte")){
+                    typeExample = "example = \"1\",";
+                }else if(trimedLine.contains("private BigDecimal")){
+                    typeExample = "example = \"1.00\",";
+                }else if(trimedLine.contains("private String")){
+                    typeExample = "example = \"a\",";
+                }
+                else{
+                    typeExample = "example = \"\",";
+                }
 
 
-                String swaggerRemark = "    @ApiModelProperty(value = \"%s\", required = false, accessMode = ApiModelProperty.AccessMode.READ_WRITE,\n"
+                String swaggerRemark = "    @ApiModelProperty(value = \"%s\", accessMode = ApiModelProperty.AccessMode.READ_WRITE,\n"
                         + "                       %s allowEmptyValue = true, position = %d)";
 
                 // 从数据库拿字段说明
                 List<Map<String, Object>> list = JDBCOperator.queryTableMetadata();
                 if(CollectionUtils.isEmpty(list)){
                     // 拿不到就写默认的swagger
-                    sb.append(String.format(swaggerRemark, "", dateType, position++) + "\n");
+                    sb.append(String.format(swaggerRemark, "", typeExample, position++) + "\n");
                 } else {
                     //得到属性、字段名称
                     Class<?> clazz = Class.forName(GeneratorConfig.PACKAGE_NAME + ".model." + GeneratorConfig.CLASS_NAME );
@@ -138,7 +148,7 @@ public class VOGenerator {
                                 String remark = map.get("remark").toString();
                                 remark = remark.contains("\"")?remark.replace("\"","\\\""):remark;
                                 // 写带注释的swagger
-                                sb.append(String.format(swaggerRemark, remark, dateType, position++) + "\n");
+                                sb.append(String.format(swaggerRemark, remark, typeExample, position++) + "\n");
                                 break;
                             }
                         }

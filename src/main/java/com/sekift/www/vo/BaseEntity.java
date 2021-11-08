@@ -5,9 +5,9 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 /**
- * @author: sekift
- * @date: 2020/10/20 11:15
- * @description: 分页所用参数，默认1页10条数据
+ * @author sekift
+ * @date 2020/10/20 11:15
+ * @description 分页所用参数，默认1页10条数据
  **/
 @Data
 @ApiModel(description="分页基础实例")

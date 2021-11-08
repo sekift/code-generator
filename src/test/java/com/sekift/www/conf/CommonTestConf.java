@@ -13,9 +13,9 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * @author: sekift
- * @date: 2020/10/30 16:00
- * @description: 提供测试通用的依赖
+ * @author sekift
+ * @date 2020/10/30 16:00
+ * @description 提供测试通用的依赖
  * 能加快测试service/dao/controller等功能，时间上比@SpringBootTest的10s+缩减到5s-。
  *
  */

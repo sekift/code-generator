@@ -6,15 +6,16 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * @author: sekift
- * @date: 2020/11/02 18:04
- * @description: 代码生成工具类
+ * @author sekift
+ * @date 2020/11/02 18:04
+ * @description 代码生成工具类
  */
 public class GeneratorUtil {
 
@@ -28,8 +29,7 @@ public class GeneratorUtil {
         if(!file.exists()){
             throw new Exception("文件：" + fromPath + "不存在，请检查你的配置！");
         }
-        BufferedReader reader = new BufferedReader(new FileReader(file));
-        return reader;
+        return new BufferedReader(new FileReader(file));
     }
 
     /**
@@ -51,7 +51,7 @@ public class GeneratorUtil {
      * @throws Exception
      */
     public static void writeFile(String toPath, String line)throws Exception{
-        FileUtils.writeStringToFile(new File(toPath), line, Charset.forName("UTF-8"), true);
+        FileUtils.writeStringToFile(new File(toPath), line, StandardCharsets.UTF_8, true);
     }
 
     /**
@@ -69,8 +69,7 @@ public class GeneratorUtil {
     public static String getStringDate() {
         Date currentTime = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd HH:mm");
-        String dateString = formatter.format(currentTime);
-        return dateString;
+        return formatter.format(currentTime);
     }
 
     /**

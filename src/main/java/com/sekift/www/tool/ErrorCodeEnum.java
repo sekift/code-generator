@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author: sekift
- * @date: 2020/12/16 16:21
- * @description: 错误码枚举
+ * @author sekift
+ * @date 2020/12/16 16:21
+ * @description 错误码枚举
  **/
 public enum ErrorCodeEnum {
     /**

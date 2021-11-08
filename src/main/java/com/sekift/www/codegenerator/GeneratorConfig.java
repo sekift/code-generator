@@ -1,9 +1,9 @@
 package com.sekift.www.codegenerator;
 
 /**
- * @author: sekift
- * @date: 2020/11/04 9:08
- * @description: 代码生成常量
+ * @author sekift
+ * @date 2020/11/04 9:08
+ * @description 代码生成常量
  */
 public class GeneratorConfig {
     //传入类名或表名，表注释描述

@@ -5,9 +5,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * @author: sekift
- * @date: 2020/11/03 11:21
- * @description:
+ * @author sekift
+ * @date 2020/11/03 11:21
+ * @description 启动
  */
 @SpringBootApplication
 @MapperScan("com.sekift.www.dao")

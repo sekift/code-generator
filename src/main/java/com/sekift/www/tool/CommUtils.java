@@ -3,9 +3,9 @@ package com.sekift.www.tool;
 import org.apache.commons.beanutils.PropertyUtils;
 
 /**
- * @author: sekift
- * @date: 2020/10/20 11:15
- * @description: 通用工具类
+ * @author sekift
+ * @date 2020/10/20 11:15
+ * @description 通用工具类
  */
 public class CommUtils {
 

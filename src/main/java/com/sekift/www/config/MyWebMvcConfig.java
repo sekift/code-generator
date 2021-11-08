@@ -21,9 +21,9 @@ import java.util.List;
 import java.util.TimeZone;
 
 /**
- * @author: sekift
- * @date: 2020/10/20 17:15
- * @description: 拦截器，extends WebMvcConfigurationSupport或implements WebMvcConfigurer，但有些小不同
+ * @author sekift
+ * @date 2020/10/20 17:15
+ * @description 拦截器，extends WebMvcConfigurationSupport或implements WebMvcConfigurer，但有些小不同
  */
 @Configuration
 public class MyWebMvcConfig extends WebMvcConfigurationSupport {

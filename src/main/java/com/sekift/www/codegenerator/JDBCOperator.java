@@ -12,9 +12,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author: sekift
- * @date: 2020/11/05 15:34
- * @description: 从数据库中拿出表的建表语句
+ * @author sekift
+ * @date 2020/11/05 15:34
+ * @description 从数据库中拿出表的建表语句
  */
 public class JDBCOperator {
 
@@ -160,8 +160,7 @@ public class JDBCOperator {
                 throw new Exception("文件：" + soucePath + "不存在，请检查你的配置！");
             }
             SAXReader read = new SAXReader();
-            org.dom4j.Document doc = read.read(file);
-            return doc;
+            return read.read(file);
         } catch (Exception e) {
             e.printStackTrace();
         }

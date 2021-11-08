@@ -6,9 +6,9 @@ import com.sekift.www.codegenerator.GeneratorUtil;
 import java.io.BufferedReader;
 
 /**
- * @author: sekift
- * @date: 2020/11/04 16:34
- * @description: 从service类生成controller类
+ * @author sekift
+ * @date 2020/11/04 16:34
+ * @description 从service类生成controller类
  */
 public class ControllerGenerator {
     public String CLASS_NAME = GeneratorConfig.CLASS_NAME;
@@ -108,9 +108,17 @@ public class ControllerGenerator {
             sb.append(className + "\n");
             sb.append("\n");
             // 注入
+            String autowiredClass = "    private final " + CLASS_NAME + "Service "+
+                    GeneratorUtil.firstCharLowerCase(CLASS_NAME)+ "Service;";
+            sb.append(autowiredClass + "\n");
+            sb.append("\n");
             sb.append("    @Autowired" + "\n");
-            sb.append("    private " + CLASS_NAME + "Service "+
-                    GeneratorUtil.firstCharLowerCase(CLASS_NAME)+ "Service;" + "\n");
+            String autowiredConstructor = "    public "+CLASS_NAME + "Controller("
+                    + CLASS_NAME + "Service "+ GeneratorUtil.firstCharLowerCase(CLASS_NAME)+ "Service){"
+                    + "\n" + "        this."+ GeneratorUtil.firstCharLowerCase(CLASS_NAME)+ "Service = "
+                    + GeneratorUtil.firstCharLowerCase(CLASS_NAME)+ "Service;" + "\n"
+                    + "    }" + "\n";
+            sb.append(autowiredConstructor + "\n");
         }
     }
 
