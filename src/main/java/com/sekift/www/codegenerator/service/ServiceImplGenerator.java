@@ -108,7 +108,6 @@ public class ServiceImplGenerator {
                     GeneratorUtil.firstCharLowerCase(CLASS_NAME)+ "Mapper;";
             sb.append(autowiredClass + "\n");
             sb.append("\n");
-            sb.append("    @Autowired" + "\n");
             String autowiredConstructor = "    public "+CLASS_NAME + "ServiceImpl("
                     + CLASS_NAME + "Mapper "+ GeneratorUtil.firstCharLowerCase(CLASS_NAME)+ "Mapper){"
                     + "\n" + "        this."+ GeneratorUtil.firstCharLowerCase(CLASS_NAME)+ "Mapper = "

@@ -5,38 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b92a609-eede-4d5d-bf48-98691d5337c2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/CodeGeneratorApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sekift/www/CodeGeneratorApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/GeneratorCodeAllTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/GeneratorCodeAllTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/GeneratorCodeOneTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/GeneratorCodeOneTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/GeneratorConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/GeneratorConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/GeneratorUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/GeneratorUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/JDBCOperator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/JDBCOperator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/service/CommonGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/service/CommonGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/service/ControllerGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/service/ControllerGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/service/ServiceGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/service/ServiceGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/service/ServiceImplGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/service/ServiceImplGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/service/VOGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/service/VOGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/config/MyWebMvcConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sekift/www/config/MyWebMvcConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/config/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sekift/www/config/SwaggerConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/controller/CCouponController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/dao/CCouponMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/model/CCoupon.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/model/CCouponExample.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/service/CCouponService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/service/impl/CCouponServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/tool/CommUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sekift/www/tool/CommUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/tool/ErrorCodeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sekift/www/tool/ErrorCodeEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/tool/JsonRslt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sekift/www/tool/JsonRslt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/vo/BaseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sekift/www/vo/BaseEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/vo/CCouponVO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/CCouponMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/sekift/www/conf/CommonTestConf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/sekift/www/conf/CommonTestConf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/sekift/www/service/ResLocIdeaServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/sekift/www/service/ResLocIdeaServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/sekift/www/util/MyBatisUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/sekift/www/util/MyBatisUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -346,7 +317,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../luyinzhang/oms/mini_prog_wt_mall" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -465,7 +436,8 @@
       <workItem from="1632639390271" duration="50000" />
       <workItem from="1635837466732" duration="690000" />
       <workItem from="1636101686965" duration="5042000" />
-      <workItem from="1636333997611" duration="850000" />
+      <workItem from="1636333997611" duration="1162000" />
+      <workItem from="1636336325858" duration="38000" />
     </task>
     <servers />
   </component>

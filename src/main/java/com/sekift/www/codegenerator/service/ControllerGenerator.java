@@ -112,7 +112,6 @@ public class ControllerGenerator {
                     GeneratorUtil.firstCharLowerCase(CLASS_NAME)+ "Service;";
             sb.append(autowiredClass + "\n");
             sb.append("\n");
-            sb.append("    @Autowired" + "\n");
             String autowiredConstructor = "    public "+CLASS_NAME + "Controller("
                     + CLASS_NAME + "Service "+ GeneratorUtil.firstCharLowerCase(CLASS_NAME)+ "Service){"
                     + "\n" + "        this."+ GeneratorUtil.firstCharLowerCase(CLASS_NAME)+ "Service = "
