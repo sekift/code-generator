@@ -48,10 +48,10 @@ public class VOGenerator {
             sb.append("}");
 
             GeneratorUtil.writeFile(TO_PATH, sb.toString());
-            System.out.println(CLASS_NAME + WRITE_NAME + "生成成功");
+            System.out.println(CLASS_NAME + WRITE_NAME + " 生成成功");
         }catch(Exception e){
             e.printStackTrace();
-            System.out.println(CLASS_NAME + WRITE_NAME + "生成失败");
+            System.out.println(CLASS_NAME + WRITE_NAME + " 生成失败");
         }
     }
 

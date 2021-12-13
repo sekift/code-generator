@@ -52,10 +52,10 @@ public class ControllerGenerator {
             sb.append("}");
 
             GeneratorUtil.writeFile(TO_PATH, sb.toString());
-            System.out.println(CLASS_NAME + WRITE_NAME + "生成成功");
+            System.out.println(CLASS_NAME + WRITE_NAME + " 生成成功");
         }catch(Exception e){
             e.printStackTrace();
-            System.out.println(CLASS_NAME + WRITE_NAME + "生成失败");
+            System.out.println(CLASS_NAME + WRITE_NAME + " 生成失败");
         }
     }
 
@@ -167,7 +167,7 @@ public class ControllerGenerator {
             sb.append("    @PostMapping(\"/delete\")" + "\n");
             if(NEED_SWAGGER){
                 sb.append("    @ApiOperation(value = \"删除"+NOTE_DESC+"数据(完成)\"," +
-                        "notes=\"传入对象的唯一键即可\",httpMethod = \"POST\",hidden = false)" + "\n");
+                        "notes=\"传入对象的id即可\",httpMethod = \"POST\",hidden = false)" + "\n");
             }
             sb.append("    public JsonRslt delete(@RequestBody "
                     + VALUE_OBJECT + " " + GeneratorUtil.firstCharLowerCase(VALUE_OBJECT) +"){"  + "\n");
@@ -198,7 +198,7 @@ public class ControllerGenerator {
             sb.append("    @PostMapping(\"/update\")" + "\n");
             if(NEED_SWAGGER){
                 sb.append("    @ApiOperation(value = \"更新"+NOTE_DESC+"数据(完成)\"," +
-                        "notes=\"修改的数据与原来不改的数据需一起上传\",httpMethod = \"POST\",hidden = false)" + "\n");
+                        "notes=\"按需上传数据，id为必须\",httpMethod = \"POST\",hidden = false)" + "\n");
             }
             sb.append("    public " + trimedLine.replace(";","{")
                     .replace("update(", "update(@RequestBody ") + "\n");
@@ -229,7 +229,7 @@ public class ControllerGenerator {
             sb.append("    @PostMapping(\"/select\")" + "\n");
             if(NEED_SWAGGER){
                 sb.append("    @ApiOperation(value = \"按键查询"+NOTE_DESC+"数据(完成)\"," +
-                        "notes=\"传入对象的唯一键即可\",httpMethod = \"POST\",hidden = false)" + "\n");
+                        "notes=\"传入对象的id即可\",httpMethod = \"POST\",hidden = false)" + "\n");
             }
             sb.append("    public JsonRslt select(@RequestBody "
                     + VALUE_OBJECT + " " + GeneratorUtil.firstCharLowerCase(VALUE_OBJECT) +"){" + "\n");

@@ -2,6 +2,7 @@ package com.sekift.www.codegenerator.service;
 
 import com.sekift.www.codegenerator.GeneratorConfig;
 import com.sekift.www.codegenerator.GeneratorUtil;
+import org.springframework.util.StringUtils;
 
 import java.io.BufferedReader;
 
@@ -49,10 +50,10 @@ public class ServiceGenerator {
             sb.append("}");
 
             GeneratorUtil.writeFile(TO_PATH, sb.toString());
-            System.out.println(CLASS_NAME + WRITE_NAME + "生成成功");
+            System.out.println(CLASS_NAME + WRITE_NAME + " 生成成功");
         }catch(Exception e){
             e.printStackTrace();
-            System.out.println(CLASS_NAME + WRITE_NAME + "生成失败");
+            System.out.println(CLASS_NAME + WRITE_NAME + " 生成失败");
         }
     }
 
@@ -159,6 +160,10 @@ public class ServiceGenerator {
     private void generateSelectMethod(StringBuilder sb, String trimedLine) throws Exception{
         if(GeneratorConfig.SERVICE_NEED_SELECT && trimedLine.contains("selectByPrimaryKey(")){
             sb.append("\n");
+
+            if(StringUtils.isEmpty(paramName)){
+                paramName = CommonGenerator.getParamName(trimedLine);
+            }
             //方法注释信息
             CommonGenerator.methodDescription(sb, "按主键查询一条数据", paramName);
 

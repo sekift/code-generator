@@ -2,6 +2,7 @@ package com.sekift.www.codegenerator.service;
 
 import com.sekift.www.codegenerator.GeneratorConfig;
 import com.sekift.www.codegenerator.GeneratorUtil;
+import org.springframework.util.StringUtils;
 
 import java.io.BufferedReader;
 
@@ -50,10 +51,10 @@ public class ServiceImplGenerator {
             sb.append("}");
 
             GeneratorUtil.writeFile(TO_PATH, sb.toString());
-            System.out.println(CLASS_NAME + WRITE_NAME + "生成成功");
+            System.out.println(CLASS_NAME + WRITE_NAME + " 生成成功");
         }catch(Exception e){
             e.printStackTrace();
-            System.out.println(CLASS_NAME + WRITE_NAME + "生成失败");
+            System.out.println(CLASS_NAME + WRITE_NAME + " 生成失败");
         }
     }
 
@@ -145,7 +146,7 @@ public class ServiceImplGenerator {
                 sb.append("                return JsonRslt.putSuccessMessage(\"插入"+NOTE_DESC+"成功\");" + "\n");
                 sb.append("            }" + "\n");
                 sb.append("        } catch (Exception e) {" + "\n");
-                sb.append("            log.error(CommUtils.getException(e));" + "\n");
+                sb.append("            log.error(\"插入"+NOTE_DESC+"出错，\",e);" + "\n");
                 sb.append("        }" + "\n");
                 sb.append("        return JsonRslt.putErrorCode(ErrorCodeEnum.SERVICE_ERROR_C0300.getCode(), \""+NOTE_DESC+"插入失败\");" + "\n");
             }else{
@@ -179,7 +180,7 @@ public class ServiceImplGenerator {
                 sb.append("                return JsonRslt.putSuccessMessage(\"删除"+NOTE_DESC+"成功\");" + "\n");
                 sb.append("            }" + "\n");
                 sb.append("        } catch (Exception e) {" + "\n");
-                sb.append("            log.error(CommUtils.getException(e));" + "\n");
+                sb.append("            log.error(\"删除"+NOTE_DESC+"出错，\",e);" + "\n");
                 sb.append("        }" + "\n");
                 sb.append("        return JsonRslt.putErrorCode(ErrorCodeEnum.SERVICE_ERROR_C0300.getCode(), \"删除"+NOTE_DESC+"失败\");" + "\n");
             }else{
@@ -199,6 +200,10 @@ public class ServiceImplGenerator {
     private void generateUpdateMethod(StringBuilder sb, String trimedLine) throws Exception{
         if(GeneratorConfig.SERVICE_NEED_UPDATE && trimedLine.startsWith("JsonRslt update(")){
             sb.append("\n");
+
+            if(StringUtils.isEmpty(paramName)){
+                paramName = CommonGenerator.getParamName(trimedLine);
+            }
             //方法注释信息
             CommonGenerator.methodDescription(sb, "修改数据", GeneratorUtil.firstCharLowerCase(VALUE_OBJECT));
 
@@ -223,7 +228,7 @@ public class ServiceImplGenerator {
                 }
                 sb.append("            }" + "\n");
                 sb.append("        } catch (Exception e) {" + "\n");
-                sb.append("            log.error(CommUtils.getException(e));" + "\n");
+                sb.append("            log.error(\"修改"+NOTE_DESC+"出错，\",e);" + "\n");
                 sb.append("        }" + "\n");
                 sb.append("        return JsonRslt.putErrorCode(ErrorCodeEnum.SERVICE_ERROR_C0300.getCode(), \"修改"+NOTE_DESC+"失败\");" + "\n");
             }else{
@@ -243,6 +248,10 @@ public class ServiceImplGenerator {
     private void generateSelectMethod(StringBuilder sb, String trimedLine) throws Exception{
         if(GeneratorConfig.SERVICE_NEED_SELECT && trimedLine.contains("JsonRslt select(")){
             sb.append("\n");
+
+            if(StringUtils.isEmpty(paramName)){
+                paramName = CommonGenerator.getParamName(trimedLine);
+            }
             //方法注释信息
             CommonGenerator.methodDescription(sb, "按主键查询一条数据", paramName);
 
@@ -294,7 +303,7 @@ public class ServiceImplGenerator {
                         + "Mapper.selectByExample(example);" + "\n");
                 sb.append("             return JsonRslt.putSuccess(list);" + "\n");
                 sb.append("        } catch (Exception e) {" + "\n");
-                sb.append("            log.error(CommUtils.getException(e));" + "\n");
+                sb.append("            log.error(\"查询"+NOTE_DESC+"出错，\",e);" + "\n");
                 sb.append("        }" + "\n");
                 sb.append("        return JsonRslt.putErrorCode(ErrorCodeEnum.SERVICE_ERROR_C0300.getCode(), \"查询"+NOTE_DESC+"失败\");" + "\n");
             }else{
