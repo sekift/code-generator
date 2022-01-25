@@ -95,7 +95,7 @@ public class VOGenerator {
             // 注解
             sb.append("@Data" + "\n");
             if (NEED_SWAGGER) {
-                sb.append(String.format("@ApiModel(description=\"%s\")", NOTE_DESC) + "\n");
+                sb.append(String.format("@ApiModel(description = \"%s\")", NOTE_DESC) + "\n");
             }
             // 类名，是否需分页
             String className = (GeneratorConfig.VO_NEED_PAGE ? trimedLine.replace(" {","VO extends BaseEntity {") :
@@ -131,7 +131,7 @@ public class VOGenerator {
 
 
                 String swaggerRemark = "    @ApiModelProperty(value = \"%s\", accessMode = ApiModelProperty.AccessMode.READ_WRITE,\n"
-                        + "                       %s allowEmptyValue = true, position = %d)";
+                        + "            %s allowEmptyValue = true, position = %d)";
 
                 // 从数据库拿字段说明
                 List<Map<String, Object>> list = JDBCOperator.queryTableMetadata();

@@ -5,6 +5,8 @@ import com.sekift.www.codegenerator.GeneratorUtil;
 import org.springframework.util.StringUtils;
 
 import java.io.BufferedReader;
+import java.lang.reflect.Field;
+import java.util.Objects;
 
 /**
  * @author sekift
@@ -308,19 +310,24 @@ public class ServiceImplGenerator {
             if (GeneratorConfig.SERVICE_IMPL_NEED_IMPL) {
                 sb.append("        try {" + "\n");
                 if (GeneratorConfig.VO_NEED_PAGE) {
-                    sb.append("             PageHelper.startPage(" + GeneratorUtil.firstCharLowerCase(CLASS_NAME)
-                            + "VO.getPage(), " + GeneratorUtil.firstCharLowerCase(CLASS_NAME) + "VO.getRows());" + "\n");
+                    sb.append("             PageHelper.startPage(" + GeneratorUtil.firstCharLowerCase(VALUE_OBJECT)
+                            + ".getPage(), " + GeneratorUtil.firstCharLowerCase(VALUE_OBJECT) + ".getRows());" + "\n");
                 }
                 sb.append("             "
                         + CLASS_NAME + "Example example = new " + CLASS_NAME + "Example();" + "\n");
                 sb.append("             "
                         + CLASS_NAME + "Example.Criteria criteria = example.createCriteria();" + "\n");
+                // 添加查询条件
+                if (GeneratorConfig.SERIVCE_IMPL_SEARCH_CONDITION) {
+                    this.generateSearchCondition(sb);
+                }
+
                 sb.append("             List<"
                         + CLASS_NAME + "> list = " + GeneratorUtil.firstCharLowerCase(CLASS_NAME)
                         + "Mapper.selectByExample(example);" + "\n");
                 if (GeneratorConfig.VO_NEED_PAGE) {
                     sb.append("             return JsonRslt.putSuccess(new PageInfo<>(list));" + "\n");
-                }else {
+                } else {
                     sb.append("             return JsonRslt.putSuccess(list);" + "\n");
                 }
                 sb.append("        } catch (Exception e) {" + "\n");
@@ -331,6 +338,45 @@ public class ServiceImplGenerator {
                 sb.append("        return null;" + "\n");
             }
             sb.append("    }" + "\n");
+        }
+    }
+
+    /**
+     * 生成搜索条件
+     * 暂时参与的类型为：Integer、Long、Byte、String
+     *
+     * @param sb 入参
+     */
+    private void generateSearchCondition(StringBuilder sb) {
+        try {
+            Class<?> clazz = Class.forName(GeneratorConfig.PACKAGE_NAME + ".model." + GeneratorConfig.CLASS_NAME);
+            for (Field field : clazz.getDeclaredFields()) {
+                // Integer
+                if (Objects.equals(field.getType().getName(), "java.lang.Byte") ||
+                        Objects.equals(field.getType().getName(), "java.lang.Integer") ||
+                        Objects.equals(field.getType().getName(), "java.lang.Long")) {
+
+                    sb.append("             if (" + GeneratorUtil.firstCharLowerCase(VALUE_OBJECT) + ".get"
+                            + GeneratorUtil.firstCharUpperCase(field.getName()) + "() != null) {" + "\n");
+                    sb.append("                 criteria.and" + GeneratorUtil.firstCharUpperCase(field.getName())
+                            + "EqualTo(" + GeneratorUtil.firstCharLowerCase(VALUE_OBJECT) + ".get"
+                            + GeneratorUtil.firstCharUpperCase(field.getName()) + "());" + "\n");
+                    sb.append("             }" + "\n");
+                }
+
+                // String
+                if (Objects.equals(field.getType().getName(), "java.lang.String")) {
+                    sb.append("             if (" + GeneratorUtil.firstCharLowerCase(VALUE_OBJECT) + ".get"
+                            + GeneratorUtil.firstCharUpperCase(field.getName()) + "() != null) {" + "\n");
+                    sb.append("                 criteria.and" + GeneratorUtil.firstCharUpperCase(field.getName())
+                            + "Like(\"%\" + " + GeneratorUtil.firstCharLowerCase(VALUE_OBJECT) + ".get"
+                            + GeneratorUtil.firstCharUpperCase(field.getName()) + "() + \"%\");" + "\n");
+                    sb.append("             }" + "\n");
+                }
+            }
+            sb.append("             example.setOrderByClause(\" id asc \");" + "\n");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
     }
 }

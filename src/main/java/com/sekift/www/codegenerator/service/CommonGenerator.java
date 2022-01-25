@@ -12,10 +12,11 @@ public class CommonGenerator {
 
     /**
      * 取主键的名称，例如id或者code
+     *
      * @param trimedLine
      * @return
      */
-    public static String getParamName(String trimedLine){
+    public static String getParamName(String trimedLine) {
         //获取括号中的内容
         String strSub = trimedLine.split("\\(")[1].replace(");", "");
         return strSub.split(" ")[1];
@@ -23,6 +24,7 @@ public class CommonGenerator {
 
     /**
      * 类注释信息
+     *
      * @param sb
      */
     public static void classDescription(StringBuilder sb) {
@@ -37,12 +39,14 @@ public class CommonGenerator {
 
     /**
      * 方法注释信息
+     *
      * @param sb
      */
     public static void methodDescription(StringBuilder sb, String desc, String paramName) {
         if (GeneratorConfig.NEED_NOTE) {
             sb.append("    /**" + "\n");
             sb.append("     * ").append(desc).append("\n");
+            sb.append("     * ").append("\n");
             sb.append("     * @param ").append(paramName).append(" 入参").append("\n");
             sb.append("     * @return JSON" + "\n");
             sb.append("     **/" + "\n");
