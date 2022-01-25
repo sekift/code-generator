@@ -13,8 +13,8 @@
         </commentGenerator>
 
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
-                        connectionURL="jdbc:mysql://10.0.2.136:3306/wt_test?serverTimezone=UTC&amp;characterEncoding=utf-8&amp;useInformationSchema=true"
-                        userId="root" password="etl" />
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/litemall?serverTimezone=UTC&amp;characterEncoding=utf-8&amp;useInformationSchema=true"
+                        userId="root" password="123456" />
 
         <!-- 类型转换 -->
         <javaTypeResolver>
@@ -43,7 +43,7 @@
         </javaClientGenerator>
 
         <!-- 要生成的表名 -->
-<!--        <table tableName="mall_category"></table>-->
-<!--        <table tableName="mall_goods"></table>-->
+        <table tableName="litemall_ad"></table>
+        <table tableName="litemall_admin"></table>
     </context>
 </generatorConfiguration>

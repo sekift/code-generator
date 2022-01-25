@@ -23,13 +23,14 @@ public class GeneratorConfig {
     public static final String SUBJECT_NAME = ""; //项目名称，如果user.dir已包含则留空，code-generator
     public static final boolean NEED_NOTE = true; //是否需要注释
     public static final boolean VO_NEED_SWAGGER = true; //vo是否需要swagger信息
-    public static final boolean VO_NEED_PAGE = false; //vo是否需要分页的page和rows
+    public static final boolean VO_NEED_PAGE = true; //vo是否需要分页的page和rows
     public static final boolean SERVICE_NEED_INSERT = true; //sevice生成需要哪些方法
     public static final boolean SERVICE_NEED_DELETE = true; //
     public static final boolean SERVICE_NEED_UPDATE = true; //
     public static final boolean SERVICE_NEED_SELECT = true; //
     public static final boolean SERVICE_NEED_SEARCH = true; //
     public static final boolean SERVICE_IMPL_NEED_IMPL = true; //是否需要实现方法
+    public static final boolean SERIVE_IMPL_SEARCH_CONDITION = true; //搜索是否需要自动加条件
     public static final boolean CONTROLLER_NEED_SWAGGER = true; //controller是否需要swagger信息
 
     public static final boolean NEED_APPEND = false; //如果写入的文件已经存在，如果需要继续写入则设为true，但是代码会出错(慎重)。

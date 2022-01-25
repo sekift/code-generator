@@ -7,10 +7,10 @@
     <list default="true" id="7b92a609-eede-4d5d-bf48-98691d5337c2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/GeneratorCodeOneTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/GeneratorCodeOneTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/service/ControllerGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/service/ControllerGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/service/ServiceGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/service/ServiceGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/GeneratorConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/GeneratorConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/service/ServiceImplGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/service/ServiceImplGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/service/VOGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/service/VOGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,13 +35,13 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/sekift/www/tool/JsonRslt.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/service/CommonGenerator.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/resources/generatorConfig.xml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/service/ServiceGenerator.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/resources/application.yml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/sekift/www/codegenerator/service/ControllerGenerator.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/sekift/www/tool/JsonRslt.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/application.yml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/generatorConfig.xml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/sekift/www/vo/BaseEntity.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/sekift/www/tool/CommUtils.java" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -333,7 +333,7 @@
       <recent name="F:\workspace\code-generator" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.GeneratorCodeOneTest.generatorOne">
+  <component name="RunManager" selected="Application.CodeGeneratorApplication">
     <configuration name="CodeGeneratorApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.sekift.www.CodeGeneratorApplication" />
       <module name="code-generator" />
@@ -409,10 +409,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CodeGeneratorApplication" />
         <item itemvalue="JUnit.GeneratorCodeOneTest.generatorOne" />
         <item itemvalue="JUnit.GeneratorCodeOneTest" />
         <item itemvalue="Application.JDBCOperator" />
-        <item itemvalue="Application.CodeGeneratorApplication" />
         <item itemvalue="JUnit.GeneratorCodeAllTest.generatorAll" />
       </list>
     </recent_temporary>
@@ -444,7 +444,10 @@
       <workItem from="1636336325858" duration="38000" />
       <workItem from="1636340946124" duration="2055000" />
       <workItem from="1636474276176" duration="1681000" />
-      <workItem from="1639385295663" duration="1960000" />
+      <workItem from="1639385295663" duration="2039000" />
+      <workItem from="1642988557069" duration="463000" />
+      <workItem from="1642989047528" duration="571000" />
+      <workItem from="1643073502189" duration="3930000" />
     </task>
     <servers />
   </component>

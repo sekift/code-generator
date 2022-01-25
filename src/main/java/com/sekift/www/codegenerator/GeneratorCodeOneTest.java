@@ -11,9 +11,9 @@ import org.junit.Test;
  */
 public class GeneratorCodeOneTest {
     /** 填写表的名字*/
-    private String className = "mall_order_details";
+    private final String className = "litemall_admin";
     /** 填写表的注释*/
-    private String noteDesc = "订单详情";
+    private final String noteDesc = "管理";
 
     @Before
     public void setUp() {

@@ -120,7 +120,7 @@ public class VOGenerator {
                 }else if(trimedLine.contains("private Integer")||trimedLine.contains("private Long")
                         ||trimedLine.contains("private Byte")){
                     typeExample = "example = \"1\",";
-                }else if(trimedLine.contains("private BigDecimal")){
+                }else if(trimedLine.contains("private BigDecimal")||trimedLine.contains("private Double")){
                     typeExample = "example = \"1.00\",";
                 }else if(trimedLine.contains("private String")){
                     typeExample = "example = \"a\",";
