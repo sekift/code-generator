@@ -11,9 +11,9 @@ import org.junit.Test;
  */
 public class GeneratorCodeOneTest {
     /** 填写表的名字*/
-    private final String className = "sys_mod";
+    private final String className = "admin";
     /** 填写表的注释*/
-    private final String noteDesc = "菜单";
+    private final String noteDesc = "测试";
 
     @Before
     public void setUp() {

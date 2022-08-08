@@ -109,8 +109,7 @@ public class GeneratorUtil {
         }
         matcher.appendTail(sb);
         // 第一个小写字母也要转为大写
-        String s = firstCharUpperCase(sb.toString());
-        return s;
+        return firstCharUpperCase(sb.toString());
     }
 
     private static Pattern humpPattern = Pattern.compile("[A-Z]");

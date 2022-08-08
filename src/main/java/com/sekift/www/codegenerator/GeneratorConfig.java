@@ -7,7 +7,7 @@ package com.sekift.www.codegenerator;
  */
 public class GeneratorConfig {
     //传入类名或表名，表注释描述
-    public GeneratorConfig(String className, String noteDesc){
+    public GeneratorConfig(String className, String noteDesc) {
         CLASS_NAME = className;
         NOTE_DESC = noteDesc;
 
@@ -15,7 +15,7 @@ public class GeneratorConfig {
     }
 
     // 配置文件常量
-    public static String DATABASE_NAME = "coupon"; //数据库名
+    public static String DATABASE_NAME = "housekeeper_180"; //数据库名
     public static String CLASS_NAME = ""; // 类名
     public static String NOTE_DESC = ""; //注释描述
 
@@ -35,28 +35,30 @@ public class GeneratorConfig {
 
     public static final boolean NEED_APPEND = false; //如果写入的文件已经存在，如果需要继续写入则设为true，但是代码会出错(慎重)。
 
-    //如果是数据库表名，有_的，则先转换为驼峰
+    //如果是数据库表名，有_的，则先转换为驼峰；如果没有_，则首字母转大写
     private void init() {
-        if(CLASS_NAME.contains("_")){
+        if (CLASS_NAME.contains("_")) {
             CLASS_NAME = GeneratorUtil.lineToHump(CLASS_NAME);
+        } else {
+            CLASS_NAME = GeneratorUtil.firstCharUpperCase(CLASS_NAME);
         }
     }
 
     //包位于maven中的路径
-    public static final  String PACKAGE_PATH = "src/main/java/";
+    public static final String PACKAGE_PATH = "src/main/java/";
     //resources文件位于maven中的路径
-    public static final  String RESOURCES_PATH = "src/main/resources/";
+    public static final String RESOURCES_PATH = "src/main/resources/";
     //项目在电脑上的路径
     public static final String SUBJECT_DIR = System.getProperty("user.dir");
     //注释的作者
     public static final String NOTE_AUTHOR = System.getenv().get("USERNAME");
 
     //package的路径
-    public static final  String BASE_PKG_DIR = GeneratorConfig.SUBJECT_DIR + GeneratorConfig.SUBJECT_NAME +"/"
-            + GeneratorConfig.PACKAGE_PATH + GeneratorUtil.packageToPath(PACKAGE_NAME+ "/");
+    public static final String BASE_PKG_DIR = GeneratorConfig.SUBJECT_DIR + GeneratorConfig.SUBJECT_NAME + "/"
+            + GeneratorConfig.PACKAGE_PATH + GeneratorUtil.packageToPath(PACKAGE_NAME + "/");
 
     //package的路径
-    public static final  String BASE_RES_DIR = GeneratorConfig.SUBJECT_DIR + GeneratorConfig.SUBJECT_NAME +"/"
+    public static final String BASE_RES_DIR = GeneratorConfig.SUBJECT_DIR + GeneratorConfig.SUBJECT_NAME + "/"
             + GeneratorConfig.RESOURCES_PATH + "/";
 
     //文件后缀
